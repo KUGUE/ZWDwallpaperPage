@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>¡Gracias por tu compra! - Sitios Web Premium</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/gracias-styles.css">
+</head>
+<body>
+  <!-- Partículas flotantes -->
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+
+  <div class="success-container">
+    <!-- Contenedor de la palomita -->
+    <div class="checkmark-container">
+      <div class="checkmark">✓</div>
+    </div>
+
+    <!-- Título principal -->
+    <h1 class="title">¡Gracias por tu compra!</h1>
+
+    <!-- Subtítulo -->
+    <p class="subtitle">Tu pedido ha sido procesado exitosamente</p>
+
+    <!-- Mensaje informativo -->
+    <div class="info-message">
+      <p><strong>📧 Revisa tu email</strong><br>
+      Hemos enviado los detalles de tu compra y las instrucciones de descarga a tu correo electrónico.</p>
+      
+      <p><strong>📱 Soporte disponible</strong><br>
+      Si tienes alguna pregunta, nuestro equipo está listo para ayudarte 24/7.</p>
+      
+      <p><strong>🚀 ¡Comienza ya!</strong><br>
+      En breve recibirás todos los archivos y documentación para comenzar con tu nuevo sitio web.</p>
+    </div>
+
+    <!-- Botón de retorno -->
+    <a href="index.html" class="return-button">Regresar al Portafolio</a>
+  </div>
+
+  <script>
+    // Agregar más interactividad
+    document.addEventListener('DOMContentLoaded', function() {
+      // Agregar partículas adicionales dinámicamente
+      setTimeout(function() {
+        for (let i = 0; i < 10; i++) {
+          createFloatingParticle();
+        }
+      }, 2000);
+    });
+
+    function createFloatingParticle() {
+      const particle = document.createElement('div');
+      particle.style.position = 'absolute';
+      particle.style.width = Math.random() * 8 + 4 + 'px';
+      particle.style.height = particle.style.width;
+      particle.style.background = 'rgba(255, 255, 255, 0.4)';
+      particle.style.borderRadius = '50%';
+      particle.style.pointerEvents = 'none';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.top = Math.random() * 100 + '%';
+      particle.style.animation = `float ${Math.random() * 4 + 4}s ease-in-out infinite`;
+      particle.style.animationDelay = Math.random() * 2 + 's';
+      
+      document.body.appendChild(particle);
+      
+      // Remover partícula después de un tiempo
+      setTimeout(() => {
+        if (particle.parentNode) {
+          particle.parentNode.removeChild(particle);
+        }
+      }, 8000);
+    }
+  </script>
+</body>
+</html>
