@@ -20,14 +20,188 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/modal.css">
+  <link rel="stylesheet" href="css/preloader.css">
 </head>
-<body>
+<body class="loading">
+  <!-- Preloader elegante -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-content">
+      <div class="preloader-logo">
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 3H21V21H3V3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 9H15V15H9V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="preloader-text">
+        <h2>Sitios Web Premium</h2>
+        <p>Cargando experiencia digital...</p>
+      </div>
+      <div class="preloader-spinner">
+        <div class="spinner-ring"></div>
+        <div class="spinner-ring"></div>
+        <div class="spinner-ring"></div>
+      </div>
+      <div class="preloader-progress">
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+        <span class="progress-text">0%</span>
+      </div>
+    </div>
+    <div class="preloader-particles">
+      <div class="preloader-particle"></div>
+      <div class="preloader-particle"></div>
+      <div class="preloader-particle"></div>
+      <div class="preloader-particle"></div>
+      <div class="preloader-particle"></div>
+    </div>
+  </div>
+
+  <!-- Script del Preloader (debe ir inmediatamente después del HTML del preloader) -->
+  <script>
+    // ===== PRELOADER SYSTEM =====
+    class PreloaderManager {
+      constructor() {
+        this.preloader = document.getElementById('preloader');
+        this.progressFill = document.querySelector('.progress-fill');
+        this.progressText = document.querySelector('.progress-text');
+        this.currentProgress = 0;
+        this.targetProgress = 0;
+        this.isComplete = false;
+        
+        this.init();
+      }
+      
+      init() {
+        // Simular carga de recursos
+        this.simulateLoading();
+        
+        // Escuchar cuando el DOM esté completamente cargado
+        if (document.readyState === 'complete') {
+          this.handleComplete();
+        } else {
+          window.addEventListener('load', () => this.handleComplete());
+        }
+        
+        // Actualizar progreso suavemente
+        this.updateProgress();
+      }
+      
+      simulateLoading() {
+        const loadingSteps = [
+          { progress: 20, delay: 300, text: 'Cargando recursos...' },
+          { progress: 40, delay: 600, text: 'Inicializando...' },
+          { progress: 60, delay: 900, text: 'Preparando interfaz...' },
+          { progress: 80, delay: 1200, text: 'Aplicando efectos...' },
+          { progress: 95, delay: 1500, text: 'Finalizando...' }
+        ];
+        
+        loadingSteps.forEach(step => {
+          setTimeout(() => {
+            this.setProgress(step.progress);
+            this.updateLoadingText(step.text);
+          }, step.delay);
+        });
+      }
+      
+      setProgress(progress) {
+        this.targetProgress = Math.min(progress, 100);
+      }
+      
+      updateProgress() {
+        if (this.currentProgress < this.targetProgress) {
+          this.currentProgress += (this.targetProgress - this.currentProgress) * 0.1;
+          
+          if (this.targetProgress - this.currentProgress < 0.1) {
+            this.currentProgress = this.targetProgress;
+          }
+          
+          this.progressFill.style.width = this.currentProgress + '%';
+          this.progressText.textContent = Math.floor(this.currentProgress) + '%';
+        }
+        
+        if (!this.isComplete) {
+          requestAnimationFrame(() => this.updateProgress());
+        }
+      }
+      
+      updateLoadingText(text) {
+        const loadingTextElement = document.querySelector('.preloader-text p');
+        if (loadingTextElement) {
+          loadingTextElement.style.opacity = '0';
+          setTimeout(() => {
+            loadingTextElement.textContent = text;
+            loadingTextElement.style.opacity = '0.9';
+          }, 200);
+        }
+      }
+      
+      handleComplete() {
+        // Asegurar que llegue al 100%
+        this.setProgress(100);
+        
+        setTimeout(() => {
+          this.hidePreloader();
+        }, 800); // Dar tiempo para que se vea el 100%
+      }
+      
+      hidePreloader() {
+        this.isComplete = true;
+        
+        // Animar salida del preloader
+        this.preloader.classList.add('hidden');
+        
+        // Remover clase loading del body
+        document.body.classList.remove('loading');
+        
+        // Remover preloader del DOM después de la animación
+        setTimeout(() => {
+          if (this.preloader && this.preloader.parentNode) {
+            this.preloader.parentNode.removeChild(this.preloader);
+          }
+          
+          // Forzar animaciones de entrada del contenido principal
+          this.initMainContent();
+        }, 500);
+      }
+      
+      initMainContent() {
+        // Forzar reflow para activar animaciones CSS
+        document.body.offsetHeight;
+        
+        // Agregar clase para activar animaciones
+        document.body.classList.add('loaded');
+        
+        // Inicializar efectos principales
+        if (typeof createParticles === 'function') {
+          createParticles();
+        }
+        
+        // Trigger evento personalizado para indicar que el preloader terminó
+        const preloaderCompleteEvent = new CustomEvent('preloaderComplete');
+        document.dispatchEvent(preloaderCompleteEvent);
+      }
+    }
+    
+    // Inicializar preloader inmediatamente
+    const preloaderManager = new PreloaderManager();
+    
+    // También manejar caso de carga muy rápida
+    setTimeout(() => {
+      if (!preloaderManager.isComplete) {
+        preloaderManager.handleComplete();
+      }
+    }, 3000); // Máximo 3 segundos de preloader
+  </script>
+
   <!-- Indicador de scroll -->
   <div class="scroll-indicator"></div>
   
   <div class="container">
     <!-- Partículas de fondo -->
     <div class="particles-background">
+      <div class="particle"></div>
+      <div class="particle"></div>
       <div class="particle"></div>
       <div class="particle"></div>
       <div class="particle"></div>
@@ -303,8 +477,13 @@
 
     // ===== RESTO DEL CÓDIGO EXISTENTE =====
     
-    // Forzar animaciones al cargar la página
-    document.addEventListener('DOMContentLoaded', function() {
+    // Escuchar cuando el preloader termine para inicializar efectos
+    document.addEventListener('preloaderComplete', function() {
+      initializeMainEffects();
+    });
+    
+    // Función principal para inicializar efectos después del preloader
+    function initializeMainEffects() {
       // Crear partículas dinámicas
       createParticles();
       
@@ -391,7 +570,61 @@
         });
         statsObserver.observe(statsSection);
       }
+    }
+    
+    // Inicializar solo indicador de scroll y modal desde el principio
+    document.addEventListener('DOMContentLoaded', function() {
+      initializeScrollIndicator();
+      initializeContactModal();
     });
+    
+    function initializeScrollIndicator() {
+      // Inicializar indicador
+      updateScrollIndicator();
+      
+      // Escuchar evento de scroll
+      let scrollTicking = false;
+      window.addEventListener('scroll', function() {
+        if (!scrollTicking) {
+          requestAnimationFrame(function() {
+            updateScrollIndicator();
+            
+            // Efectos adicionales en scroll
+            const scrollTop = window.pageYOffset;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollProgress = scrollTop / maxScroll;
+            
+            // Cambiar intensidad de las partículas según el scroll
+            document.documentElement.style.setProperty('--scroll-intensity', scrollProgress);
+            
+            scrollTicking = false;
+          });
+          scrollTicking = true;
+        }
+      });
+    }
+    
+    function initializeContactModal() {
+      console.log('DOM cargado, inicializando modal'); // Debug
+      const modal = document.getElementById('contactModal');
+      
+      if (!modal) {
+        console.error('Modal no encontrado en DOMContentLoaded');
+        return;
+      }
+      
+      const overlay = modal.querySelector('.modal-overlay');
+      
+      if (overlay) {
+        overlay.addEventListener('click', closeContactModal);
+        console.log('Event listener del overlay añadido'); // Debug
+      } else {
+        console.error('Overlay no encontrado');
+      }
+      
+      // El modal ya está oculto por defecto con CSS
+      console.log('Modal inicializado correctamente');
+    }
 
     // Función para animar las estadísticas
     function animateStats() {
@@ -543,29 +776,6 @@
       }
     }
     
-    // Cerrar modal al hacer clic en el overlay
-    document.addEventListener('DOMContentLoaded', function() {
-      console.log('DOM cargado, inicializando modal'); // Debug
-      const modal = document.getElementById('contactModal');
-      
-      if (!modal) {
-        console.error('Modal no encontrado en DOMContentLoaded');
-        return;
-      }
-      
-      const overlay = modal.querySelector('.modal-overlay');
-      
-      if (overlay) {
-        overlay.addEventListener('click', closeContactModal);
-        console.log('Event listener del overlay añadido'); // Debug
-      } else {
-        console.error('Overlay no encontrado');
-      }
-      
-      // El modal ya está oculto por defecto con CSS
-      console.log('Modal inicializado correctamente');
-    });
-
     // También añadir un evento global para test
     window.testModal = function() {
       console.log('Test modal llamado');
