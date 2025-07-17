@@ -681,6 +681,40 @@ header h1 {
   overflow: hidden;
   filter: saturate(1.1) brightness(1.05);
   flex-shrink: 0;
+  background-attachment: local;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.item-image .preview-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 3;
+}
+
+.item-image .preview-overlay span {
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  transform: translateY(10px);
+  transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .item-image .preview-overlay {
+  opacity: 1;
+}
+
+.portfolio-item:hover .item-image .preview-overlay span {
+  transform: translateY(0);
 }
 
 .item-image::before {
@@ -698,16 +732,148 @@ header h1 {
   left: 100%;
 }
 
+.item-image::after {
+  transition: all 0.3s ease;
+}
+
+.portfolio-item:hover .item-image::after {
+  transform: translate(-50%, -50%) scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.4));
+}
+
+.portfolio-item:hover .item-image {
+  filter: saturate(1.3) brightness(1.1);
+}
+
+/* Efectos de parallax para las imágenes */
+.item-image {
+  background-attachment: local;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Efectos hover mejorados */
+.portfolio-item:hover .item-image {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Añadir gradientes animados */
+.item-image.restaurant::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, 
+    rgba(255,255,255,0.1) 0%, 
+    transparent 25%, 
+    transparent 75%, 
+    rgba(255,255,255,0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.portfolio-item:hover .item-image.restaurant::before {
+  opacity: 1;
+}
+
+/* Aplicar el mismo efecto a portfolio y landing */
+.item-image.portfolio::before,
+.item-image.landing::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, 
+    rgba(255,255,255,0.1) 0%, 
+    transparent 25%, 
+    transparent 75%, 
+    rgba(255,255,255,0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.portfolio-item:hover .item-image.portfolio::before,
+.portfolio-item:hover .item-image.landing::before {
+  opacity: 1;
+}
+
+/* Animación de entrada para las imágenes */
+@keyframes imageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.item-image {
+  animation: imageSlideIn 0.6s ease-out forwards;
+}
+
 .item-image.restaurant {
-  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  background: 
+    linear-gradient(135deg, rgba(67, 233, 123, 0.9) 0%, rgba(56, 249, 215, 0.9) 100%),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f0f8ff"/><circle cx="20" cy="20" r="8" fill="%23fff" opacity="0.3"/><circle cx="80" cy="30" r="6" fill="%23fff" opacity="0.2"/><circle cx="50" cy="70" r="10" fill="%23fff" opacity="0.1"/><rect x="30" y="40" width="40" height="2" fill="%23fff" opacity="0.3"/><rect x="25" y="45" width="50" height="1" fill="%23fff" opacity="0.2"/></svg>');
+  background-size: cover, 40px 40px;
+  position: relative;
+}
+
+.item-image.restaurant::after {
+  content: '🍽️';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  z-index: 2;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
 }
 
 .item-image.portfolio {
-  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  background: 
+    linear-gradient(135deg, rgba(168, 237, 234, 0.9) 0%, rgba(254, 214, 227, 0.9) 100%),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f5f7fa"/><rect x="10" y="15" width="25" height="20" fill="%23fff" opacity="0.6" rx="2"/><rect x="40" y="15" width="25" height="20" fill="%23fff" opacity="0.4" rx="2"/><rect x="70" y="15" width="25" height="20" fill="%23fff" opacity="0.3" rx="2"/><rect x="10" y="45" width="80" height="10" fill="%23fff" opacity="0.2" rx="1"/><rect x="10" y="60" width="60" height="8" fill="%23fff" opacity="0.15" rx="1"/><circle cx="85" cy="80" r="5" fill="%23fff" opacity="0.3"/></svg>');
+  background-size: cover, 50px 50px;
+  position: relative;
+}
+
+.item-image.portfolio::after {
+  content: '💼';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  z-index: 2;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
 }
 
 .item-image.landing {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: 
+    linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23667eea"/><path d="M20 30 L80 30 L75 50 L25 50 Z" fill="%23fff" opacity="0.2"/><circle cx="30" cy="70" r="3" fill="%23fff" opacity="0.4"/><circle cx="50" cy="75" r="2" fill="%23fff" opacity="0.3"/><circle cx="70" cy="68" r="4" fill="%23fff" opacity="0.2"/><rect x="35" y="15" width="30" height="3" fill="%23fff" opacity="0.3" rx="1"/><polygon points="50,5 55,15 45,15" fill="%23fff" opacity="0.4"/></svg>');
+  background-size: cover, 45px 45px;
+  position: relative;
+}
+
+.item-image.landing::after {
+  content: '🚀';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  z-index: 2;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
 }
 
 .item-content {

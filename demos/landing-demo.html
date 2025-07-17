@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Marketing Digital Pro - Landing Page Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #ffffff;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Hero Section - Optimized for Conversion */
+    .hero {
+      background: 
+        linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%),
+        url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop&crop=center');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      padding: 6rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+      background-size: 100px 100px;
+      animation: float 20s infinite linear;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-100px); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .hero .subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      font-weight: 500;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 3rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.95;
+    }
+
+    .cta-button {
+      background: #ff6b6b;
+      color: white;
+      padding: 1.5rem 3rem;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      box-shadow: 0 15px 35px rgba(255, 107, 107, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 45px rgba(255, 107, 107, 0.6);
+      background: #ff5252;
+    }
+
+    /* Trust Indicators */
+    .trust-section {
+      background: white;
+      padding: 4rem 0;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .trust-indicators {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .trust-item {
+      padding: 2rem;
+    }
+
+    .trust-item .number {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #667eea;
+      display: block;
+    }
+
+    .trust-item .label {
+      font-size: 1.1rem;
+      color: #718096;
+      font-weight: 600;
+    }
+
+    /* Benefits Section */
+    .benefits-section {
+      padding: 6rem 0;
+      background: #f8fafc;
+    }
+
+    .section-title {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #2d3748;
+      font-weight: 700;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+
+    .benefit-item {
+      background: white;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .benefit-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .benefit-image {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .benefit-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .benefit-item:hover .benefit-image::after {
+      opacity: 1;
+    }
+
+    .benefit-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .benefit-item:hover .benefit-image img {
+      transform: scale(1.1);
+    }
+
+    .benefit-content {
+      padding: 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .benefit-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .benefit-item h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: #2d3748;
+      font-weight: 700;
+    }
+
+    .benefit-item p {
+      color: #718096;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Smart Lead Capture Form */
+    .capture-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 6rem 0;
+      text-align: center;
+    }
+
+    .capture-form {
+      max-width: 600px;
+      margin: 3rem auto;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 3rem;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 1.2rem;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 15px;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    .form-group select option {
+      background: #2d3748;
+      color: white;
+      padding: 0.5rem;
+    }
+
+    .form-group input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #ff6b6b;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .submit-button {
+      width: 100%;
+      background: #ff6b6b;
+      color: white;
+      padding: 1.5rem;
+      border: none;
+      border-radius: 15px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .submit-button:hover {
+      background: #ff5252;
+      transform: translateY(-2px);
+    }
+
+    /* Email Marketing Integration */
+    .integration-section {
+      padding: 6rem 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      text-align: center;
+    }
+
+    .integration-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .integration-item {
+      padding: 2rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .integration-item:hover {
+      border-color: #667eea;
+      background: #f8fafc;
+    }
+
+    .integration-item .icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #667eea;
+    }
+
+    /* Analytics & Tracking */
+    .analytics-section {
+      padding: 6rem 0;
+      background: #1a202c;
+      color: white;
+      text-align: center;
+    }
+
+    .analytics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .analytics-metric {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+    }
+
+    .analytics-metric .value {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #667eea;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Speed Optimization */
+    .speed-section {
+      padding: 6rem 0;
+      background: #f0fff4;
+      text-align: center;
+    }
+
+    .speed-indicator {
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: conic-gradient(#38a169 0deg 324deg, #e2e8f0 324deg 360deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 2rem auto;
+      position: relative;
+    }
+
+    .speed-indicator::before {
+      content: '';
+      width: 150px;
+      height: 150px;
+      background: #f0fff4;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .speed-value {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #38a169;
+      z-index: 2;
+      position: relative;
+    }
+
+    /* Testimonials */
+    .testimonials-section {
+      padding: 6rem 0;
+      background: white;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .testimonial {
+      background: #f8fafc;
+      padding: 3rem;
+      border-radius: 20px;
+      position: relative;
+      border-left: 5px solid #667eea;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      color: #4a5568;
+    }
+
+    .testimonial-author {
+      font-weight: 700;
+      color: #2d3748;
+    }
+
+    .testimonial-role {
+      color: #718096;
+      font-size: 0.9rem;
+    }
+
+    /* Final CTA */
+    .final-cta {
+      background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+      color: white;
+      padding: 6rem 0;
+      text-align: center;
+    }
+
+    .urgency-text {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      display: inline-block;
+      margin-bottom: 2rem;
+      font-weight: 600;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    /* Back Button */
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      color: #667eea;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    .back-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      background: rgba(255, 255, 255, 1);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .benefits-grid,
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .trust-indicators {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .benefit-image {
+        height: 180px;
+      }
+      
+      .benefit-content {
+        padding: 1.5rem;
+      }
+      
+      .benefit-icon {
+        font-size: 2.5rem;
+      }
+      
+      .benefit-item h3 {
+        font-size: 1.2rem;
+      }
+      
+      .benefit-item p {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero .subtitle {
+        font-size: 1.2rem;
+      }
+      
+      .benefits-grid {
+        gap: 2rem;
+      }
+      
+      .benefit-image {
+        height: 150px;
+      }
+      
+      .benefit-content {
+        padding: 1.2rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .trust-indicators {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="../index.html" class="back-button">← Volver al Portafolio</a>
+
+  <!-- Hero Section - Maximum Conversion -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Aumenta tus Ventas un 300%</h1>
+        <p class="subtitle">Con Nuestra Estrategia de Marketing Digital Probada</p>
+        <p>Transforma tu negocio con campañas que generan resultados reales. Más de 500 empresas ya han multiplicado sus ingresos con nuestro sistema.</p>
+        <a href="#captura" class="cta-button">Quiero Crecer Ahora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Indicators -->
+  <section class="trust-section">
+    <div class="container">
+      <h2 style="color: #2d3748; margin-bottom: 2rem;">Resultados Comprobados</h2>
+      <div class="trust-indicators">
+        <div class="trust-item">
+          <span class="number">500+</span>
+          <span class="label">Empresas Exitosas</span>
+        </div>
+        <div class="trust-item">
+          <span class="number">300%</span>
+          <span class="label">Aumento Promedio en Ventas</span>
+        </div>
+        <div class="trust-item">
+          <span class="number">$50M+</span>
+          <span class="label">Generados para Clientes</span>
+        </div>
+        <div class="trust-item">
+          <span class="number">24/7</span>
+          <span class="label">Soporte Especializado</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits-section">
+    <div class="container">
+      <h2 class="section-title">¿Por Qué Elegir Nuestro Sistema?</h2>
+      <p style="text-align: center; font-size: 1.2rem; color: #718096; margin-bottom: 2rem;">
+        Optimizado para máxima conversión y resultados garantizados
+      </p>
+      
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <div class="benefit-image">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop&crop=center" alt="Segmentación Avanzada" loading="lazy">
+          </div>
+          <div class="benefit-content">
+            <span class="benefit-icon">🎯</span>
+            <h3>Segmentación Avanzada</h3>
+            <p>Llegamos exactamente a tu cliente ideal con precisión láser usando IA y big data para maximizar conversiones.</p>
+          </div>
+        </div>
+        
+        <div class="benefit-item">
+          <div class="benefit-image">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop&crop=center" alt="ROI Garantizado" loading="lazy">
+          </div>
+          <div class="benefit-content">
+            <span class="benefit-icon">📈</span>
+            <h3>ROI Garantizado</h3>
+            <p>Garantizamos mínimo 3x retorno de inversión o devolvemos tu dinero. Sin letra pequeña, sin trucos.</p>
+          </div>
+        </div>
+        
+        <div class="benefit-item">
+          <div class="benefit-image">
+            <img src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?w=500&h=300&fit=crop&crop=center" alt="Resultados en 30 Días" loading="lazy">
+          </div>
+          <div class="benefit-content">
+            <span class="benefit-icon">⚡</span>
+            <h3>Resultados en 30 Días</h3>
+            <p>Ve resultados reales en tu primer mes. Nuestro sistema está optimizado para generar leads desde el día uno.</p>
+          </div>
+        </div>
+        
+        <div class="benefit-item">
+          <div class="benefit-image">
+            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=500&h=300&fit=crop&crop=center" alt="Automatización Completa" loading="lazy">
+          </div>
+          <div class="benefit-content">
+            <span class="benefit-icon">🤖</span>
+            <h3>Automatización Completa</h3>
+            <p>Tu embudo de ventas trabajará 24/7 convirtiendo visitantes en clientes mientras duermes.</p>
+          </div>
+        </div>
+        
+        <div class="benefit-item">
+          <div class="benefit-image">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop&crop=center" alt="Analytics Dashboard" loading="lazy">
+          </div>
+          <div class="benefit-content">
+            <span class="benefit-icon">📊</span>
+            <h3>Analytics Avanzado</h3>
+            <p>Dashboard en tiempo real con métricas que importan: conversiones, CAC, LTV y ROI detallado.</p>
+          </div>
+        </div>
+        
+        <div class="benefit-item">
+          <div class="benefit-image">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&h=300&fit=crop&crop=center" alt="Optimización Continua" loading="lazy">
+          </div>
+          <div class="benefit-content">
+            <span class="benefit-icon">🔧</span>
+            <h3>Optimización Continua</h3>
+            <p>A/B testing automatizado y optimización constante para mejorar resultados semana tras semana.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Smart Lead Capture -->
+  <section id="captura" class="capture-section">
+    <div class="container">
+      <h2 class="section-title" style="color: white;">Recibe tu Estrategia Personalizada GRATIS</h2>
+      <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+        Completa este formulario y recibe un análisis completo de cómo podemos hacer crecer tu negocio
+      </p>
+      
+      <div class="capture-form">
+        <form id="leadForm">
+          <div class="form-row">
+            <div class="form-group">
+              <input type="text" name="nombre" placeholder="Nombre completo*" required>
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="Email empresarial*" required>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <input type="tel" name="telefono" placeholder="Teléfono*" required>
+            </div>
+            <div class="form-group">
+              <input type="text" name="empresa" placeholder="Empresa*" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <select name="industry" required>
+              <option value="">Selecciona tu industria*</option>
+              <option value="ecommerce">E-commerce</option>
+              <option value="servicios">Servicios Profesionales</option>
+              <option value="saas">Software/SaaS</option>
+              <option value="inmobiliaria">Bienes Raíces</option>
+              <option value="salud">Salud y Bienestar</option>
+              <option value="educacion">Educación</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <select name="budget" required>
+              <option value="">Presupuesto mensual de marketing*</option>
+              <option value="5k-10k">$5,000 - $10,000</option>
+              <option value="10k-25k">$10,000 - $25,000</option>
+              <option value="25k-50k">$25,000 - $50,000</option>
+              <option value="50k+">$50,000+</option>
+            </select>
+          </div>
+          
+          <button type="submit" class="submit-button">
+            Quiero Mi Estrategia Gratis
+          </button>
+          
+          <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.8;">
+            🔒 Tus datos están 100% seguros. No spam, solo valor.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Email Marketing Integration -->
+  <section class="integration-section">
+    <div class="container">
+      <h2 class="section-title" style="color: white;">Integración con Email Marketing</h2>
+      <p style="text-align: center; font-size: 1.2rem; color: white; margin-bottom: 2rem;">
+        Conectamos con las mejores plataformas para automatizar tu comunicación
+      </p>
+      
+      <div class="integration-features">
+        <div class="integration-item">
+          <div class="icon">📧</div>
+          <h3>Mailchimp</h3>
+          <p>Segmentación automática y campañas personalizadas</p>
+        </div>
+        
+        <div class="integration-item">
+          <div class="icon">🚀</div>
+          <h3>ActiveCampaign</h3>
+          <p>Automatización avanzada y scoring de leads</p>
+        </div>
+        
+        <div class="integration-item">
+          <div class="icon">💌</div>
+          <h3>ConvertKit</h3>
+          <p>Secuencias de email optimizadas para conversión</p>
+        </div>
+        
+        <div class="integration-item">
+          <div class="icon">📊</div>
+          <h3>HubSpot</h3>
+          <p>CRM completo con nurturing inteligente</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Analytics & Tracking -->
+  <section class="analytics-section">
+    <div class="container">
+      <h2 class="section-title">Analytics y Tracking Avanzado</h2>
+      <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+        Métricas en tiempo real para optimizar cada aspecto de tu campaña
+      </p>
+      
+      <div class="analytics-grid">
+        <div class="analytics-metric">
+          <span class="value">Real-time</span>
+          <span>Tracking de Conversiones</span>
+        </div>
+        
+        <div class="analytics-metric">
+          <span class="value">360°</span>
+          <span>Vista del Customer Journey</span>
+        </div>
+        
+        <div class="analytics-metric">
+          <span class="value">A/B</span>
+          <span>Testing Automatizado</span>
+        </div>
+        
+        <div class="analytics-metric">
+          <span class="value">ROI</span>
+          <span>Cálculo Exacto</span>
+        </div>
+        
+        <div class="analytics-metric">
+          <span class="value">24/7</span>
+          <span>Monitoreo Continuo</span>
+        </div>
+        
+        <div class="analytics-metric">
+          <span class="value">API</span>
+          <span>Integración Total</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Speed Optimization -->
+  <section class="speed-section">
+    <div class="container">
+      <h2 class="section-title">Carga Ultra Rápida (< 2s)</h2>
+      <p style="font-size: 1.2rem; color: #718096; margin-bottom: 2rem;">
+        Velocidad optimizada para máximas conversiones. Cada segundo cuenta.
+      </p>
+      
+      <div class="speed-indicator">
+        <span class="speed-value">1.2s</span>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem;">
+        <div style="text-align: center;">
+          <h3 style="color: #38a169; font-size: 2rem;">⚡</h3>
+          <p><strong>CDN Global</strong><br>Servidores en todo el mundo</p>
+        </div>
+        <div style="text-align: center;">
+          <h3 style="color: #38a169; font-size: 2rem;">🗜️</h3>
+          <p><strong>Compresión Avanzada</strong><br>Imágenes y assets optimizados</p>
+        </div>
+        <div style="text-align: center;">
+          <h3 style="color: #38a169; font-size: 2rem;">💾</h3>
+          <p><strong>Cache Inteligente</strong><br>Carga instantánea</p>
+        </div>
+        <div style="text-align: center;">
+          <h3 style="color: #38a169; font-size: 2rem;">📱</h3>
+          <p><strong>Mobile First</strong><br>Optimizado para móviles</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Testimonials Section -->
+  <section style="background: #f7fafc; padding: 4rem 0;">
+    <div class="container">
+      <h2 class="section-title">Lo que Dicen Nuestros Clientes</h2>
+      <p style="text-align: center; font-size: 1.2rem; color: #718096; margin-bottom: 3rem;">
+        Resultados reales de empresas que transformaron su negocio
+      </p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+          <div style="color: #fbbf24; font-size: 1.5rem; margin-bottom: 1rem;">⭐⭐⭐⭐⭐</div>
+          <p style="font-style: italic; margin-bottom: 1rem; color: #4a5568;">
+            "En solo 3 meses aumentamos nuestras ventas un 250%. La estrategia funcionó mejor de lo que esperábamos."
+          </p>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 50px; height: 50px; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">MR</div>
+            <div>
+              <strong>María Rodríguez</strong>
+              <div style="color: #718096; font-size: 0.9rem;">CEO, Tienda Online Fashion</div>
+            </div>
+          </div>
+        </div>
+        
+        <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+          <div style="color: #fbbf24; font-size: 1.5rem; margin-bottom: 1rem;">⭐⭐⭐⭐⭐</div>
+          <p style="font-style: italic; margin-bottom: 1rem; color: #4a5568;">
+            "Los formularios inteligentes capturaron 400% más leads. ROI impresionante desde el primer mes."
+          </p>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 50px; height: 50px; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">CG</div>
+            <div>
+              <strong>Carlos García</strong>
+              <div style="color: #718096; font-size: 0.9rem;">Director Marketing, TechStart</div>
+            </div>
+          </div>
+        </div>
+        
+        <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+          <div style="color: #fbbf24; font-size: 1.5rem; margin-bottom: 1rem;">⭐⭐⭐⭐⭐</div>
+          <p style="font-style: italic; margin-bottom: 1rem; color: #4a5568;">
+            "La velocidad de carga y optimización convirtió visitantes en clientes. Resultados inmediatos."
+          </p>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 50px; height: 50px; background: linear-gradient(45deg, #667eea, #764ba2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">AL</div>
+            <div>
+              <strong>Ana López</strong>
+              <div style="color: #718096; font-size: 0.9rem;">Fundadora, Servicios Digitales Pro</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <div class="urgency-text">⏰ Oferta limitada: Solo 10 cupos este mes</div>
+      <h2 style="font-size: 3rem; margin-bottom: 1rem;">¿Listo para 3x tus Ventas?</h2>
+      <p style="font-size: 1.3rem; margin-bottom: 3rem;">
+        Únete a las 500+ empresas que ya están creciendo con nuestro sistema
+      </p>
+      <a href="#captura" class="cta-button" style="font-size: 1.5rem; padding: 2rem 4rem;">
+        Sí, Quiero Crecer Ahora
+      </a>
+      <p style="margin-top: 2rem; opacity: 0.9;">
+        💯 Garantía de 30 días o tu dinero de vuelta
+      </p>
+    </div>
+  </section>
+
+  <script>
+    // Form submission with lead tracking
+    document.getElementById('leadForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Simulate form submission
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData.entries());
+      
+      // In a real implementation, this would send to your email marketing platform
+      console.log('Lead captured:', data);
+      
+      // Show success message
+      alert('¡Excelente! Tu estrategia personalizada llegará a tu email en los próximos 5 minutos. Revisa también tu carpeta de spam.');
+      
+      // Track conversion (in real implementation, this would be Google Analytics, Facebook Pixel, etc.)
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL',
+          'value': 1,
+          'currency': 'USD'
+        });
+      }
+      
+      // Redirect to thank you page or show next step
+      // window.location.href = 'thank-you.html';
+    });
+
+    // Smooth scroll for CTA buttons
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+
+
+    // Form field analytics (track which fields users interact with)
+    document.querySelectorAll('input, select').forEach(field => {
+      field.addEventListener('focus', function() {
+        // Track field interaction
+        console.log('Field focused:', this.name);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Alex Martínez - Portafolio Personal Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/portfolio-demo.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Alex Martínez</div>
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#about">Acerca de</a></li>
+        <li><a href="#portfolio">Proyectos</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <a href="../index.html" class="back-button">← Volver al Portafolio</a>
+    </nav>
+  </header>
+
+  <section id="inicio" class="hero">
+    <div class="hero-background">
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=800&fit=crop&crop=center" alt="Workspace background" class="hero-bg-image">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-profile">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face" alt="Alex Martínez" class="profile-picture">
+      </div>
+      <h1>Alex Martínez</h1>
+      <p class="subtitle">Desarrollador Full Stack & Diseñador UX/UI</p>
+      <p>Creo experiencias digitales extraordinarias que conectan marcas con usuarios a través de código limpio y diseño intuitivo.</p>
+      <div class="cta-buttons">
+        <a href="#portfolio" class="cta-button">Ver Proyectos</a>
+        <a href="#contacto" class="cta-button secondary">Contactar</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2 class="section-title">Acerca de Mí</h2>
+      
+      <div class="about-content">
+        <div class="about-images">
+          <div class="profile-image">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face" alt="Alex Martínez working" class="main-profile">
+          </div>
+          <div class="workspace-gallery">
+            <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=200&h=150&fit=crop&crop=center" alt="Coding workspace" class="workspace-img">
+            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=200&h=150&fit=crop&crop=center" alt="Design tools" class="workspace-img">
+          </div>
+        </div>
+        <div class="about-text">
+          <p>Soy un desarrollador apasionado con más de 5 años de experiencia creando soluciones web innovadoras. Mi enfoque se centra en combinar funcionalidad técnica con diseño excepcional para entregar productos que no solo funcionan perfectamente, sino que también deleitan a los usuarios.</p>
+          
+          <p>Especializado en tecnologías modernas como React, Node.js, Python y diseño UX/UI, he trabajado con startups y empresas establecidas para llevar sus visiones digitales a la realidad.</p>
+          
+          <div class="experience-stats">
+            <div class="stat-item">
+              <h4>50+</h4>
+              <p>Proyectos Completados</p>
+            </div>
+            <div class="stat-item">
+              <h4>5+</h4>
+              <p>Años de Experiencia</p>
+            </div>
+            <div class="stat-item">
+              <h4>20+</h4>
+              <p>Clientes Satisfechos</p>
+            </div>
+          </div>
+          
+          <div class="skills">
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">UI/UX Design</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Figma</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="portfolio-section">
+    <div class="container">
+      <h2 class="section-title">Galería de Proyectos Interactiva</h2>
+      <p style="text-align: center; font-size: 1.2rem; color: #718096; margin-bottom: 2rem;">
+        Una selección de mis trabajos más destacados
+      </p>
+      
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <div class="portfolio-image">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop&crop=center" alt="E-commerce Platform" loading="lazy">
+            <div class="image-overlay">
+              <span class="project-type">Web Development</span>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>E-commerce Platform</h3>
+            <p>Plataforma completa de comercio electrónico con gestión de inventario, pagos y analytics en tiempo real.</p>
+            <div class="tech-stack">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Stripe</span>
+              <span class="tech-tag">MongoDB</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">🔗 Demo</a>
+              <a href="#" class="project-link">💻 Código</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="portfolio-item">
+          <div class="portfolio-image">
+            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&h=300&fit=crop&crop=center" alt="Fitness Tracker App" loading="lazy">
+            <div class="image-overlay">
+              <span class="project-type">Mobile App</span>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>Fitness Tracker App</h3>
+            <p>Aplicación móvil para seguimiento de ejercicios con integración a wearables y gamificación.</p>
+            <div class="tech-stack">
+              <span class="tech-tag">React Native</span>
+              <span class="tech-tag">Firebase</span>
+              <span class="tech-tag">HealthKit</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">🔗 Demo</a>
+              <a href="#" class="project-link">💻 Código</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="portfolio-item">
+          <div class="portfolio-image">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop&crop=center" alt="Analytics Dashboard" loading="lazy">
+            <div class="image-overlay">
+              <span class="project-type">Data Visualization</span>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>Analytics Dashboard</h3>
+            <p>Dashboard interactivo para visualización de datos empresariales con reportes automatizados.</p>
+            <div class="tech-stack">
+              <span class="tech-tag">Vue.js</span>
+              <span class="tech-tag">D3.js</span>
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">PostgreSQL</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">🔗 Demo</a>
+              <a href="#" class="project-link">💻 Código</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="portfolio-item">
+          <div class="portfolio-image">
+            <img src="https://images.unsplash.com/photo-1559028006-448665bd7c7f?w=500&h=300&fit=crop&crop=center" alt="Design System" loading="lazy">
+            <div class="image-overlay">
+              <span class="project-type">UI/UX Design</span>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <h3>Design System</h3>
+            <p>Sistema de diseño completo para startup fintech con componentes reutilizables y guías de marca.</p>
+            <div class="tech-stack">
+              <span class="tech-tag">Figma</span>
+              <span class="tech-tag">Storybook</span>
+              <span class="tech-tag">Styled Components</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">🔗 Demo</a>
+              <a href="#" class="project-link">💻 Código</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cv" class="cv-section">
+    <div class="container">
+      <h2 class="section-title">CV Descargable en PDF</h2>
+      <p style="font-size: 1.2rem; color: #718096; margin-bottom: 3rem;">
+        Descarga mi currículum completo con experiencia detallada, educación y certificaciones
+      </p>
+      
+      <a href="#" class="cv-download">📄 Descargar CV en PDF</a>
+      
+      <div style="margin-top: 3rem; text-align: left; max-width: 600px; margin-left: auto; margin-right: auto;">
+        <h3 style="color: #2d3748; margin-bottom: 1rem;">Experiencia Destacada:</h3>
+        <ul style="color: #4a5568; line-height: 1.8;">
+          <li>Senior Full Stack Developer - TechCorp (2021-2024)</li>
+          <li>Frontend Developer - StartupXYZ (2019-2021)</li>
+          <li>UI/UX Designer - DesignStudio (2018-2019)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="github-section">
+    <div class="container">
+      <h2 class="section-title" style="color: white;">Integración con GitHub</h2>
+      <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+        Sígueme en GitHub para ver mi trabajo en tiempo real
+      </p>
+      
+      <div class="github-stats">
+        <div class="github-stat">
+          <h3>150+</h3>
+          <p>Repositorios Públicos</p>
+        </div>
+        
+        <div class="github-stat">
+          <h3>2.5k</h3>
+          <p>Stars Recibidas</p>
+        </div>
+        
+        <div class="github-stat">
+          <h3>500+</h3>
+          <p>Commits Este Año</p>
+        </div>
+        
+        <div class="github-stat">
+          <h3>50+</h3>
+          <p>Pull Requests</p>
+        </div>
+      </div>
+      
+      <div style="margin-top: 3rem;">
+        <a href="#" class="cta-button">🐙 Ver perfil de GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="contact-section">
+    <div class="container">
+      <h2 class="section-title">Formulario de Contacto Avanzado</h2>
+      <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem;">
+        ¿Tienes un proyecto en mente? Hablemos sobre cómo puedo ayudarte
+      </p>
+      
+      <div class="contact-form">
+        <form>
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="empresa">Empresa</label>
+            <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa (opcional)">
+          </div>
+          
+          <div class="form-group">
+            <label for="presupuesto">Presupuesto Estimado</label>
+            <select id="presupuesto" name="presupuesto">
+              <option value="">Seleccionar rango</option>
+              <option value="5k-10k">$5,000 - $10,000</option>
+              <option value="10k-25k">$10,000 - $25,000</option>
+              <option value="25k-50k">$25,000 - $50,000</option>
+              <option value="50k+">$50,000+</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntame sobre tu proyecto..." required></textarea>
+          </div>
+          
+          <button type="submit" class="cta-button" style="width: 100%;">Enviar Mensaje</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Form submission with validation
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Simple validation
+      const nombre = document.getElementById('nombre').value;
+      const email = document.getElementById('email').value;
+      const mensaje = document.getElementById('mensaje').value;
+      
+      if (!nombre || !email || !mensaje) {
+        alert('Por favor completa todos los campos requeridos.');
+        return;
+      }
+      
+      alert('¡Mensaje enviado! Te contactaré pronto. Gracias por tu interés.');
+    });
+
+    // Animate portfolio items on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.portfolio-item').forEach(item => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(20px)';
+      item.style.transition = 'all 0.6s ease';
+      observer.observe(item);
+    });
+  </script>
+</body>
+</html>

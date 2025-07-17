@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Restaurante Bella Vista - Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/restaurant-demo.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Bella Vista</div>
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#menu">Menú</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#reservas">Reservas</a></li>
+        <li><a href="#ubicacion">Ubicación</a></li>
+      </ul>
+      <a href="../index.html" class="back-button">← Volver al Portafolio</a>
+    </nav>
+  </header>
+
+  <section id="inicio" class="hero">
+    <div class="hero-content">
+      <h1>Restaurante Bella Vista</h1>
+      <p>Experiencia gastronómica única con los mejores sabores de la cocina mediterránea en un ambiente elegante y acogedor</p>
+      <a href="#reservas" class="cta-button">Reservar Mesa</a>
+    </div>
+  </section>
+
+  <section id="menu" class="menu-section">
+    <div class="container">
+      <h2 class="section-title">Nuestro Menú Digital</h2>
+      <p style="text-align: center; font-size: 1.2rem; color: #718096; margin-bottom: 2rem;">
+        Descubre nuestra selección de platos elaborados con ingredientes frescos y de la más alta calidad
+      </p>
+      
+      <div class="menu-grid">
+        <div class="menu-item">
+          <h3>Risotto de Trufa <span class="price">$320</span></h3>
+          <p>Cremoso risotto arborio con trufa negra, queso parmesano y aceite de trufa</p>
+        </div>
+        
+        <div class="menu-item">
+          <h3>Salmón a la Parrilla <span class="price">$420</span></h3>
+          <p>Filete de salmón fresco con vegetales asados y salsa de eneldo</p>
+        </div>
+        
+        <div class="menu-item">
+          <h3>Pasta Carbonara <span class="price">$280</span></h3>
+          <p>Pasta fresca con pancetta, huevo, queso pecorino y pimienta negra</p>
+        </div>
+        
+        <div class="menu-item">
+          <h3>Medallones de Ternera <span class="price">$520</span></h3>
+          <p>Tiernos medallones con reducción de vino tinto y puré de papas trufado</p>
+        </div>
+        
+        <div class="menu-item">
+          <h3>Ensalada Caesar <span class="price">$180</span></h3>
+          <p>Lechuga romana, crutones, queso parmesano y aderezo Caesar casero</p>
+        </div>
+        
+        <div class="menu-item">
+          <h3>Tiramisú <span class="price">$150</span></h3>
+          <p>Clásico postre italiano con café, mascarpone y cacao</p>
+        </div>
+      </div>
+      
+      <!-- Botón para abrir menú digital completo -->
+      <div style="text-align: center; margin-top: 3rem;">
+        <button id="openMenuBtn" class="cta-button" style="font-size: 1.2rem; padding: 1.2rem 2.5rem;">
+          📱 Ver Menú Digital Completo
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeria" class="gallery-section">
+    <div class="container">
+      <h2 class="section-title">Galería de Fotos HD</h2>
+      <p style="text-align: center; font-size: 1.2rem; color: #718096; margin-bottom: 2rem;">
+        Un vistazo a nuestros deliciosos platos y elegante ambiente
+      </p>
+      
+      <!-- Filtros de galería -->
+      <div class="gallery-filters" style="text-align: center; margin-bottom: 3rem;">
+        <button class="filter-btn active" data-filter="all">Todas</button>
+        <button class="filter-btn" data-filter="platos">Platos</button>
+        <button class="filter-btn" data-filter="ambiente">Ambiente</button>
+        <button class="filter-btn" data-filter="bebidas">Bebidas</button>
+      </div>
+      
+      <div class="gallery-grid">
+        <div class="gallery-item" data-category="platos">
+          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop&crop=center" alt="Plato gourmet elegante" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Plato Principal</h4>
+            <p>Salmón a la parrilla</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="platos">
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop&crop=center" alt="Ensalada fresca gourmet" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Ensaladas Frescas</h4>
+            <p>Ingredientes orgánicos</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="platos">
+          <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&h=300&fit=crop&crop=center" alt="Carne asada premium" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Carnes Premium</h4>
+            <p>Cortes selectos</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="platos">
+          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop&crop=center" alt="Postre gourmet" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Postres Artesanales</h4>
+            <p>Dulces únicos</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="ambiente">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=300&fit=crop&crop=center" alt="Ambiente del restaurante" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Ambiente Elegante</h4>
+            <p>Mesas con vista panorámica</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="ambiente">
+          <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400&h=300&fit=crop&crop=center" alt="Chef preparando comida" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Chef Ejecutivo</h4>
+            <p>Cocina en vivo</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="platos">
+          <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=400&h=300&fit=crop&crop=center" alt="Brunch del restaurante" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Brunch Especial</h4>
+            <p>Fines de semana</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="ambiente">
+          <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400&h=300&fit=crop&crop=center" alt="Terraza exterior" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Terraza Exterior</h4>
+            <p>Al aire libre</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="ambiente">
+          <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=400&h=300&fit=crop&crop=center" alt="Cena romántica" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Cena Romántica</h4>
+            <p>Ambiente íntimo</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="bebidas">
+          <img src="https://images.unsplash.com/photo-1547595628-c61a29f496f0?w=400&h=300&fit=crop&crop=center" alt="Copa de vino tinto" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Vinos Selectos</h4>
+            <p>Carta de vinos premium</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="platos">
+          <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=400&h=300&fit=crop&crop=center" alt="Pasta italiana casera" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Pasta Artesanal</h4>
+            <p>Recetas tradicionales</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-category="bebidas">
+          <img src="https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=400&h=300&fit=crop&crop=center" alt="Bar de cocktails" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Bar de Cócteles</h4>
+            <p>Mixología artesanal</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Información adicional -->
+      <div style="margin-top: 4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+        <div style="text-align: center; padding: 2rem; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+          <h3 style="color: #667eea; margin-bottom: 1rem;">👨‍🍳 Chef Ejecutivo</h3>
+          <p>Marco Antonelli, con 15 años de experiencia en cocina mediterránea</p>
+        </div>
+        <div style="text-align: center; padding: 2rem; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+          <h3 style="color: #667eea; margin-bottom: 1rem;">🍷 Sommelier</h3>
+          <p>Carta de vinos cuidadosamente seleccionada con más de 200 etiquetas</p>
+        </div>
+        <div style="text-align: center; padding: 2rem; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+          <h3 style="color: #667eea; margin-bottom: 1rem;">🌿 Ingredientes</h3>
+          <p>Productos frescos y orgánicos de proveedores locales</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reservas" class="reservations-section">
+    <div class="container">
+      <h2 class="section-title">Sistema de Reservas Online</h2>
+      <p style="text-align: center; font-size: 1.2rem; color: #718096; margin-bottom: 2rem;">
+        Reserva tu mesa fácilmente a través de nuestro sistema online
+      </p>
+      
+      <div class="reservation-form">
+        <form>
+          <div class="form-group">
+            <label for="nombre">Nombre Completo</label>
+            <input type="text" id="nombre" name="nombre" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="fecha">Fecha</label>
+            <input type="date" id="fecha" name="fecha" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="hora">Hora</label>
+            <select id="hora" name="hora" required>
+              <option value="">Seleccionar hora</option>
+              <option value="19:00">19:00</option>
+              <option value="19:30">19:30</option>
+              <option value="20:00">20:00</option>
+              <option value="20:30">20:30</option>
+              <option value="21:00">21:00</option>
+              <option value="21:30">21:30</option>
+              <option value="22:00">22:00</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="personas">Número de Personas</label>
+            <select id="personas" name="personas" required>
+              <option value="">Seleccionar</option>
+              <option value="1">1 persona</option>
+              <option value="2">2 personas</option>
+              <option value="3">3 personas</option>
+              <option value="4">4 personas</option>
+              <option value="5">5 personas</option>
+              <option value="6+">6+ personas</option>
+            </select>
+          </div>
+          
+          <button type="submit" class="cta-button" style="width: 100%;">Confirmar Reserva</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="ubicacion" class="location-section">
+    <div class="container">
+      <h2 class="section-title">Información de Ubicación</h2>
+      
+      <div class="location-info">
+        <div class="location-item">
+          <h3>📍 Dirección</h3>
+          <p>Av. Reforma 123, Zona Rosa<br>Ciudad de México, CDMX 06600</p>
+        </div>
+        
+        <div class="location-item">
+          <h3>🕒 Horarios</h3>
+          <p>Lunes a Domingo<br>18:00 - 23:00 hrs</p>
+        </div>
+        
+        <div class="location-item">
+          <h3>📞 Contacto</h3>
+          <p>Tel: (55) 1234-5678<br>Email: reservas@bellavista.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="social-section">
+    <div class="container">
+      <h2 class="section-title">Síguenos en Redes Sociales</h2>
+      <p>Mantente al día con nuestras novedades y promociones especiales</p>
+      
+      <div class="social-links">
+        <a href="#" title="Facebook">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+        <a href="#" title="Instagram">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+        <a href="#" title="Twitter">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+          </svg>
+        </a>
+        <a href="#" title="TikTok">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Menú Digital -->
+  <div id="digitalMenu" class="digital-menu-modal">
+    <div class="digital-menu-content">
+      <div class="digital-menu-header">
+        <h2>🍽️ Menú Digital - Bella Vista</h2>
+        <span class="digital-menu-close">&times;</span>
+      </div>
+      
+      <div class="digital-menu-body">
+        <!-- Navegación del menú -->
+        <div class="menu-nav">
+          <button class="menu-nav-btn active" data-category="entrantes">🥗 Entrantes</button>
+          <button class="menu-nav-btn" data-category="principales">🍖 Principales</button>
+          <button class="menu-nav-btn" data-category="pastas">🍝 Pastas</button>
+          <button class="menu-nav-btn" data-category="postres">🍰 Postres</button>
+          <button class="menu-nav-btn" data-category="bebidas">🍷 Bebidas</button>
+        </div>
+
+        <!-- Categorías del menú -->
+        <div id="entrantes" class="menu-category active">
+          <h3 class="category-title">🥗 Entrantes</h3>
+          <div class="menu-items-grid">
+            <div class="digital-menu-item">
+              <div class="item-info">
+                <h4>Ensalada Caesar</h4>
+                <p>Lechuga romana fresca, crutones artesanales, queso parmesano y nuestro aderezo Caesar casero</p>
+                <div class="item-tags">
+                  <span class="tag vegetarian">Vegetariano</span>
+                </div>
+              </div>
+              <div class="item-price">$180</div>
+            </div>
+            
+            <div class="digital-menu-item">
+              <div class="item-info">
+                <h4>Bruschetta Mediterránea</h4>
+                <p>Pan artesanal tostado con tomates cherry, albahaca fresca, mozzarella di bufala y aceite de oliva extra virgen</p>
+                <div class="item-tags">
+                  <span class="tag vegetarian">Vegetariano</span>
+                </div>
+              </div>
+              <div class="item-price">$160</div>
+            </div>
+
+            <div class="digital-menu-item">
+              <div class="item-info">
+                <h4>Carpaccio de Res</h4>
+                <p>Finas láminas de res premium con rúcula, alcaparras, queso parmesano y vinagreta de limón</p>
+                <div class="item-tags">
+                  <span class="tag premium">Premium</span>
+                </div>
+              </div>
+              <div class="item-price">$280</div>
+            </div>
+
+            <div class="digital-menu-item">
+              <div class="item-info">
+                <h4>Tabla de Quesos Artesanales</h4>
+                <p>Selección de quesos gourmet acompañados de mermeladas caseras, nueces y pan artesanal</p>
+                <div class="item-tags">
+                  <span class="tag vegetarian">Vegetariano</span>
+                  <span class="tag chef-special">Especial del Chef</span>
+                </div>
+              </div>
+              <div class="item-price">$320</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="principales" class="menu-category">
+          <h3 class="category-title">🍖 Platos Principales</h3>
+          <div class="menu-items-grid">
+            <div class="digital-menu-item">
+              <div class="item-info">
+                <h4>Salmón a la Parrilla</h4>
+                <p>Filete de salmón noruego fresco con vegetales asados de temporada y salsa de eneldo</p>
+                <div class="item-tags">
+                  <span class="tag healthy">Saludable</span>
+                  <span class="tag premium">Premium</span>
+                </div>
+              </div>
+              <div class="item-price">$420</div>
+            </div>
+
+            <div class="digital-menu-item">
+              <div class="item-info">
+                <h4>Medallones de Ternera</h4>
+                <p>Tiernos medallones de ternera con reducción de vino tinto y puré de papas trufado</p>
+                <div class="item-tags">
+                  <span class="tag premium">Premium</span>
+                  <span class="tag chef-special">Especial del Chef</span>
+                </div>
+              </div>
+              <div class="item-price">$520</div>
+            </div>
+
+            <div class="digital-menu-item">
+              <div class="item-info">
+                <h4>Pollo Mediterráneo</h4>
+                <p>Pechuga de pollo marinada con hierbas mediterráneas, acompañada de vegetales grillados</p>
+                <div class="item-tags">
+                  <span class="tag healthy">Saludable</span>
+                </div>
+              </div>
+              <div class="item-price">$350</div>
+            </div>
+
+            <div class="digital-menu-item">
+              <div class="item-info">
+                <h4>Cordero en Costra de Hierbas</h4>
+                <p>Rack de cordero con costra de hierbas aromáticas, ratatouille y jus de romero</p>
+                <div class="item-tags">
+                  <span class="tag premium">Premium</span>
+                  <span class="tag chef-special">Especial del Chef</span>
+                </div>
+              </div>
+              <div class="item-price">$580</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="pastas" class="menu-category">
+          <h3 class="category-title">🍝 Pastas Artesanales</h3>
+          <div class="menu-items-grid">
+            <div class="digital-menu-item">
+              <div class="item-info">
+                <h4>Pasta Carbonara</h4>
+                <p>Pasta fresca con pancetta italiana, huevo, queso pecorino romano y pimienta negra recién molida</p>
+                <div class="item-tags">
+                  <span class="tag traditional">Tradicional</span>
+                </div>
+              </div>
+              <div class="item-price">$280</div>
+            </div>
+
+            <div class="digital-menu-item">
+              <div class="item-info">
+                <h4>Risotto de Trufa</h4>
+                <p>Cremoso risotto arborio con trufa negra, queso parmesano envejecido y aceite de trufa</p>
+                <div class="item-tags">
+                  <span class="tag premium">Premium</span>
+                  <span class="tag vegetarian">Vegetariano</span>
+                </div>
+              </div>
+              <div class="item-price">$320</div>
+            </div>
+
+            <div class="digital-menu-item">
+              <div class="item-info">
+                <h4>Linguine alle Vongole</h4>
+                <p>Linguine frescos con almejas en salsa de vino blanco, ajo, perejil y un toque de guindilla</p>
+                <div class="item-tags">
+                  <span class="tag seafood">Mariscos</span>
+                </div>
+              </div>
+              <div class="item-price">$380</div>
+            </div>
+
+            <div class="digital-menu-item">
+              <div class="item-info">
+                <h4>Ravioli de Espinaca y Ricotta</h4>
+                <p>Ravioles caseros rellenos de espinaca y ricotta con salsa de tomate albahaca</p>
+                <div class="item-tags">
+                  <span class="tag vegetarian">Vegetariano</span>
+                  <span class="tag homemade">Casero</span>
+                </div>
+              </div>
+              <div class="item-price">$260</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="postres" class="menu-category">
+          <h3 class="category-title">🍰 Postres Artesanales</h3>
+          <div class="menu-items-grid">
+            <div class="digital-menu-item">
+              <div class="item-info">
+                <h4>Tiramisú</h4>
+                <p>Clásico postre italiano con café espresso, mascarpone, cacao y un toque de amaretto</p>
+                <div class="item-tags">
+                  <span class="tag traditional">Tradicional</span>
+                  <span class="tag chef-special">Especial del Chef</span>
+                </div>
+              </div>
+              <div class="item-price">$150</div>
+            </div>
+
+            <div class="digital-menu-item">
+              <div class="item-info">
+                <h4>Panna Cotta de Frutos Rojos</h4>
+                <p>Suave panna cotta de vainilla con coulis de frutos rojos frescos</p>
+                <div class="item-tags">
+                  <span class="tag vegetarian">Vegetariano</span>
+                </div>
+              </div>
+              <div class="item-price">$140</div>
+            </div>
+
+            <div class="digital-menu-item">
+              <div class="item-info">
+                <h4>Tarta de Chocolate</h4>
+                <p>Decadente tarta de chocolate belga con helado de vainilla artesanal</p>
+                <div class="item-tags">
+                  <span class="tag indulgent">Indulgente</span>
+                </div>
+              </div>
+              <div class="item-price">$160</div>
+            </div>
+
+            <div class="digital-menu-item">
+              <div class="item-info">
+                <h4>Crème Brûlée</h4>
+                <p>Cremosa natilla de vainilla con azúcar caramelizada, servida con galletas artesanales</p>
+                <div class="item-tags">
+                  <span class="tag traditional">Tradicional</span>
+                </div>
+              </div>
+              <div class="item-price">$170</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="bebidas" class="menu-category">
+          <h3 class="category-title">🍷 Carta de Bebidas</h3>
+          <div class="menu-items-grid">
+            <div class="digital-menu-item">
+              <div class="item-info">
+                <h4>Vino Tinto Reserva</h4>
+                <p>Selección de vinos tintos premium de nuestro sommelier - Malbec, Cabernet, Tempranillo</p>
+                <div class="item-tags">
+                  <span class="tag premium">Premium</span>
+                </div>
+              </div>
+              <div class="item-price">$200-$500</div>
+            </div>
+
+            <div class="digital-menu-item">
+              <div class="item-info">
+                <h4>Cócteles Signature</h4>
+                <p>Mojito de albahaca, Negroni artesanal, Whiskey Sour con espuma de limón</p>
+                <div class="item-tags">
+                  <span class="tag signature">Signature</span>
+                </div>
+              </div>
+              <div class="item-price">$180-$250</div>
+            </div>
+
+            <div class="digital-menu-item">
+              <div class="item-info">
+                <h4>Cervezas Artesanales</h4>
+                <p>Selección de cervezas locales e importadas - IPA, Lager, Wheat Beer</p>
+                <div class="item-tags">
+                  <span class="tag craft">Artesanal</span>
+                </div>
+              </div>
+              <div class="item-price">$80-$120</div>
+            </div>
+
+            <div class="digital-menu-item">
+              <div class="item-info">
+                <h4>Bebidas sin Alcohol</h4>
+                <p>Aguas saborizadas, jugos naturales, mocktails y café de especialidad</p>
+                <div class="item-tags">
+                  <span class="tag healthy">Saludable</span>
+                </div>
+              </div>
+              <div class="item-price">$50-$100</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <div class="lightbox-nav lightbox-prev">&#10094;</div>
+    <div class="lightbox-nav lightbox-next">&#10095;</div>
+    <div class="lightbox-content">
+      <img id="lightbox-image" class="lightbox-image" src="" alt="">
+      <div class="lightbox-info">
+        <h3 id="lightbox-title"></h3>
+        <p id="lightbox-description"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Form submission
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('¡Reserva confirmada! Te contactaremos pronto para confirmar los detalles.');
+    });
+
+    // Digital Menu functionality
+    const digitalMenu = document.getElementById('digitalMenu');
+    const openMenuBtn = document.getElementById('openMenuBtn');
+    const digitalMenuClose = document.querySelector('.digital-menu-close');
+    const menuNavButtons = document.querySelectorAll('.menu-nav-btn');
+    const menuCategories = document.querySelectorAll('.menu-category');
+
+    // Open digital menu
+    openMenuBtn.addEventListener('click', () => {
+      digitalMenu.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+
+    // Close digital menu
+    digitalMenuClose.addEventListener('click', () => {
+      digitalMenu.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+
+    // Close with click outside
+    digitalMenu.addEventListener('click', (e) => {
+      if (e.target === digitalMenu) {
+        digitalMenu.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Menu category navigation
+    menuNavButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const category = button.getAttribute('data-category');
+        
+        // Update active button
+        menuNavButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        // Show corresponding category
+        menuCategories.forEach(cat => {
+          cat.classList.remove('active');
+          if (cat.id === category) {
+            cat.classList.add('active');
+          }
+        });
+      });
+    });
+
+    // Close digital menu with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && digitalMenu.classList.contains('active')) {
+        digitalMenu.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxTitle = document.getElementById('lightbox-title');
+    const lightboxDescription = document.getElementById('lightbox-description');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    const lightboxPrev = document.querySelector('.lightbox-prev');
+    const lightboxNext = document.querySelector('.lightbox-next');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    let currentImageIndex = 0;
+    let galleryData = [];
+    let filteredData = [];
+
+    // Gallery filter functionality
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+        
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        // Filter gallery items
+        galleryItems.forEach(item => {
+          const category = item.getAttribute('data-category');
+          
+          if (filter === 'all' || category === filter) {
+            item.style.display = 'block';
+            item.style.animation = 'fadeIn 0.5s ease';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        
+        // Update filtered data for lightbox
+        updateFilteredData(filter);
+      });
+    });
+
+    function updateFilteredData(filter) {
+      if (filter === 'all') {
+        filteredData = [...galleryData];
+      } else {
+        filteredData = galleryData.filter((item, index) => {
+          const galleryItem = galleryItems[index];
+          return galleryItem.getAttribute('data-category') === filter;
+        });
+      }
+    }
+
+    // Preparar datos de la galería
+    galleryItems.forEach((item, index) => {
+      const img = item.querySelector('img');
+      const overlay = item.querySelector('.gallery-overlay');
+      const title = overlay.querySelector('h4').textContent;
+      const description = overlay.querySelector('p').textContent;
+      const category = item.getAttribute('data-category');
+      
+      galleryData.push({
+        src: img.src.replace('w=400&h=300', 'w=1200&h=800'), // Imagen más grande
+        alt: img.alt,
+        title: title,
+        description: description,
+        category: category,
+        originalIndex: index
+      });
+
+      // Agregar evento click a cada imagen
+      item.addEventListener('click', () => {
+        const visibleItems = Array.from(galleryItems).filter(item => 
+          item.style.display !== 'none'
+        );
+        const visibleIndex = visibleItems.indexOf(item);
+        currentImageIndex = visibleIndex;
+        
+        // Update filtered data based on current filter
+        const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+        updateFilteredData(activeFilter);
+        
+        showLightbox();
+      });
+    });
+
+    // Initialize filtered data with all items
+    filteredData = [...galleryData];
+
+    function showLightbox() {
+      const data = filteredData[currentImageIndex];
+      lightboxImage.src = data.src;
+      lightboxImage.alt = data.alt;
+      lightboxTitle.textContent = data.title;
+      lightboxDescription.textContent = data.description;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevenir scroll
+    }
+
+    function hideLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto'; // Restaurar scroll
+    }
+
+    function showNextImage() {
+      currentImageIndex = (currentImageIndex + 1) % filteredData.length;
+      const data = filteredData[currentImageIndex];
+      lightboxImage.src = data.src;
+      lightboxImage.alt = data.alt;
+      lightboxTitle.textContent = data.title;
+      lightboxDescription.textContent = data.description;
+    }
+
+    function showPrevImage() {
+      currentImageIndex = (currentImageIndex - 1 + filteredData.length) % filteredData.length;
+      const data = filteredData[currentImageIndex];
+      lightboxImage.src = data.src;
+      lightboxImage.alt = data.alt;
+      lightboxTitle.textContent = data.title;
+      lightboxDescription.textContent = data.description;
+    }
+
+    // Event listeners
+    lightboxClose.addEventListener('click', hideLightbox);
+    lightboxNext.addEventListener('click', showNextImage);
+    lightboxPrev.addEventListener('click', showPrevImage);
+
+    // Cerrar con click en el fondo
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        hideLightbox();
+      }
+    });
+
+    // Controles de teclado
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      
+      switch(e.key) {
+        case 'Escape':
+          hideLightbox();
+          break;
+        case 'ArrowRight':
+          showNextImage();
+          break;
+        case 'ArrowLeft':
+          showPrevImage();
+          break;
+      }
+    });
+
+    // Precargar imágenes para mejor rendimiento
+    function preloadImages() {
+      galleryData.forEach(data => {
+        const img = new Image();
+        img.src = data.src;
+      });
+    }
+
+    // Precargar después de que se cargue la página
+    window.addEventListener('load', preloadImages);
+
+    // Add fade in animation CSS
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
+      .gallery-item {
+        transition: all 0.3s ease;
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
