@@ -1,0 +1,59 @@
+# Configuración de enmascaramiento de URLs y redirecciones
+RewriteEngine On
+
+# Remover extensión .html de las URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Redirecciones SEO-friendly
+RewriteRule ^restaurante/?$ demos/restaurante-gourmet.html [NC,L]
+RewriteRule ^portafolio/?$ demos/portafolio-profesional.html [NC,L]
+RewriteRule ^landing/?$ demos/pagina-conversion.html [NC,L]
+RewriteRule ^conversion/?$ demos/pagina-conversion.html [NC,L]
+
+# Redirecciones para ocultar rutas antiguas
+RewriteRule ^demos/restaurant-demo\.html$ demos/restaurante-gourmet.html [R=301,L]
+RewriteRule ^demos/portfolio-demo\.html$ demos/portafolio-profesional.html [R=301,L]
+RewriteRule ^demos/landing-demo\.html$ demos/pagina-conversion.html [R=301,L]
+
+# Seguridad adicional - ocultar archivos sensibles
+<Files ".htaccess">
+Order allow,deny
+Deny from all
+</Files>
+
+<Files "*.log">
+Order allow,deny
+Deny from all
+</Files>
+
+# Headers de seguridad
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set X-Content-Type-Options "nosniff"
+Header always set Referrer-Policy "no-referrer"
+
+# Compresión GZIP para mejor rendimiento
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule>
+
+# Cache control
+<IfModule mod_expires.c>
+    ExpiresActive on
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+</IfModule>

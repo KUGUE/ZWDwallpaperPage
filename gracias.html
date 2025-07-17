@@ -4,6 +4,16 @@
   <meta charset="UTF-8">
   <title>¡Gracias por tu compra! - Sitios Web Premium</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="referrer" content="no-referrer">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon.svg">
+  <link rel="manifest" href="site.webmanifest">
+  
   <link rel="stylesheet" href="css/gracias-styles.css">
 </head>
 <body>
@@ -28,10 +38,20 @@
 
     <!-- Mensaje informativo -->
     <div class="info-message">
-      <p><strong>📧 Revisa tu email</strong><br>
+      <p><strong>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 5px;">
+          <path d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M22 7L13.03 12.7C12.7213 12.8934 12.3643 12.996 12 12.996C11.6357 12.996 11.2787 12.8934 10.97 12.7L2 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Revisa tu email</strong><br>
       Hemos enviado los detalles de tu compra y las instrucciones de descarga a tu correo electrónico.</p>
       
-      <p><strong>📱 Soporte disponible</strong><br>
+      <p><strong>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 5px;">
+          <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 13.4876 3.36093 14.891 4 16.1247L3 21L7.87530 20C9.10904 20.6391 10.5124 21 12 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8.5 12.5L10.5 14.5L15.5 9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Soporte disponible</strong><br>
       Si tienes alguna pregunta, nuestro equipo está listo para ayudarte 24/7.</p>
       
       <p><strong>🚀 ¡Comienza ya!</strong><br>
@@ -75,6 +95,11 @@
         }
       }, 8000);
     }
+
+    // Protección anti-inspección - Ver js/proteccion.js
   </script>
+  
+  <!-- Sistema de protección anti-inspección -->
+  <script src="js/proteccion.js"></script>
 </body>
 </html>

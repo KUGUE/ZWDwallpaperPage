@@ -4,10 +4,22 @@
   <meta charset="UTF-8">
   <title>Portafolio Web - Sitios Premium para Vender</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="referrer" content="no-referrer">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon.svg">
+  <link rel="manifest" href="site.webmanifest">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/modal.css">
 </head>
 <body>
   <!-- Indicador de scroll -->
@@ -16,6 +28,7 @@
   <div class="container">
     <!-- Partículas de fondo -->
     <div class="particles-background">
+      <div class="particle"></div>
       <div class="particle"></div>
       <div class="particle"></div>
       <div class="particle"></div>
@@ -70,7 +83,7 @@
     <section id="portfolio" class="portfolio-grid">
       <div class="portfolio-item">
         <div class="item-image restaurant">
-          <div class="price-tag">$516 MX</div>
+          <div class="price-tag">$1,800 MX</div>
           <div class="preview-overlay">
             <span>🍽️ Ver menú digital<br>📱 Reservas online<br>📸 Galería HD</span>
           </div>
@@ -87,18 +100,18 @@
           </ul>
           <div class="buttons-container">
             <div class="mercadopago-container">
-              <script src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
-  data-preference-id="449831948-bb119517-b117-4316-96d0-81d13c0dfd68" data-source="button">
-  </script>
+              <button class="mercadopago-btn" onclick="showContactAlert()">
+                 Comprar Ahora
+              </button>
             </div>
-            <a href="demos/restaurant-demo.html" class="demo-button" target="_blank">Ver Demo Restaurante</a>
+            <a href="demos/restaurante-gourmet.html" class="demo-button" data-masked="restaurante">Ver Demo Restaurante</a>
           </div>
         </div>
       </div>
 
       <div class="portfolio-item">
         <div class="item-image portfolio">
-          <div class="price-tag">$350 MX</div>
+          <div class="price-tag">$1,400 MX</div>
           <div class="preview-overlay">
             <span>💼 Galería interactiva<br>📄 CV descargable<br>🚀 GitHub integration</span>
           </div>
@@ -115,18 +128,18 @@
           </ul>
           <div class="buttons-container">
             <div class="mercadopago-container">
-              <script src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
-  data-preference-id="449831948-472bda56-1c65-4306-af8e-d8f6bda6ae97" data-source="button">
-  </script>
+              <button class="mercadopago-btn" onclick="showContactAlert()">
+                 Comprar Ahora
+              </button>
             </div>
-            <a href="demos/portfolio-demo.html" class="demo-button" target="_blank">Ver Demo Portafolio</a>
+            <a href="demos/portafolio-profesional.html" class="demo-button" data-masked="portafolio">Ver Demo Portafolio</a>
           </div>
         </div>
       </div>
 
       <div class="portfolio-item">
         <div class="item-image landing">
-          <div class="price-tag">$250</div>
+          <div class="price-tag">$999 MX</div>
           <div class="preview-overlay">
             <span>📈 Conversión optimizada<br>📊 Analytics avanzado<br>⚡ Carga ultra rápida</span>
           </div>
@@ -143,11 +156,11 @@
           </ul>
           <div class="buttons-container">
             <div class="mercadopago-container">
-              <script src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
-data-preference-id="449831948-c38591be-cdb3-4c58-9803-780c386b6669" data-source="button">
-</script>
+              <button class="mercadopago-btn" onclick="showContactAlert()">
+                 Comprar Ahora
+              </button>
             </div>
-            <a href="demos/landing-demo.html" class="demo-button" target="_blank">Ver Demo Landing</a>
+            <a href="demos/pagina-conversion.html" class="demo-button" data-masked="conversion">Ver Demo Landing</a>
           </div>
         </div>
       </div>
@@ -162,21 +175,88 @@ data-preference-id="449831948-c38591be-cdb3-4c58-9803-780c386b6669" data-source=
         </p>
       </div>
     </section>
+  </div>
 
-    <footer id="contact">
-      <div class="footer-content">
-        <h3>¿Listo para transformar tu presencia online?</h3>
-        <p>Contáctanos para personalizar cualquier sitio según tus necesidades específicas y llevar tu negocio al siguiente nivel</p>
+  <footer id="contact">
+    <div class="footer-content">
+      <h3>¿Listo para transformar tu presencia online?</h3>
+      <p>Contáctanos para personalizar cualquier sitio según tus necesidades específicas y llevar tu negocio al siguiente nivel</p>
+      
+      <div class="contact-info">
+        <a href="mailto:martin-kugue@hotmail.com">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M22 7L13.03 12.7C12.7213 12.8934 12.3643 12.996 12 12.996C11.6357 12.996 11.2787 12.8934 10.97 12.7L2 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Email
+        </a>
+        <a href="https://wa.me/526121681994">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 13.4876 3.36093 14.891 4 16.1247L3 21L7.87530 20C9.10904 20.6391 10.5124 21 12 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8.5 12.5L10.5 14.5L15.5 9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          WhatsApp
+        </a>
+      </div>
+      
+      <p>&copy; 2025 Sitios Web Premium - Todos los derechos reservados</p>
+      <p>Desarrollo profesional para tu negocio digital</p>
+    </div>
+  </footer>
+
+  <!-- Modal de contacto elegante -->
+  <div id="contactModal" class="contact-modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeContactModal()">&times;</button>
+      
+      <div class="modal-header">
+        <div class="modal-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 9V13M12 17H12.01M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h2>¡Importante!</h2>
+      </div>
+      
+      <div class="modal-body">
+        <p class="modal-message">
+          Debes contactarte antes de pagar para quedar los términos de cómo se elaborará el sitio o servicio que necesitas.
+        </p>
         
-        <div class="contact-info">
-          <a href="mailto:martin-kugue@hotmail.com">📧 Email</a>
-          <a href="https://wa.me/526121681994">📱 WhatsApp</a>
+        <div class="modal-contact-options">
+          <a href="mailto:martin-kugue@hotmail.com" class="modal-contact-btn email-btn">
+            <span class="btn-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 7L13.03 12.7C12.7213 12.8934 12.3643 12.996 12 12.996C11.6357 12.996 11.2787 12.8934 10.97 12.7L2 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="btn-text">
+              <strong>Email</strong>
+              <small>martin-kugue@hotmail.com</small>
+            </span>
+          </a>
+          
+          <a href="https://wa.me/526121681994" class="modal-contact-btn whatsapp-btn">
+            <span class="btn-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 13.4876 3.36093 14.891 4 16.1247L3 21L7.87530 20C9.10904 20.6391 10.5124 21 12 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8.5 12.5L10.5 14.5L15.5 9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span class="btn-text">
+              <strong>WhatsApp</strong>
+              <small>+52 612 168 1994</small>
+            </span>
+          </a>
         </div>
         
-        <p>&copy; 2025 Sitios Web Premium - Todos los derechos reservados</p>
-        <p>Desarrollo profesional para tu negocio digital</p>
+        <p class="modal-footer-text">
+          ¡Estamos aquí para ayudarte a crear el sitio perfecto para tu negocio!
+        </p>
       </div>
-    </footer>
+    </div>
   </div>
 
   <script>
@@ -402,6 +482,151 @@ data-preference-id="449831948-c38591be-cdb3-4c58-9803-780c386b6669" data-source=
       setTimeout(() => {
         particle.remove();
       }, 1000);
+    }
+
+    // Función para mostrar modal de contacto elegante
+    function showContactAlert() {
+      console.log('showContactAlert llamada'); // Debug
+      
+      const modal = document.getElementById('contactModal');
+      
+      if (!modal) {
+        console.error('Modal no encontrado');
+        alert('⚠️ ¡Importante!\n\nDebes contactarte antes de pagar para quedar los términos de cómo se elaborará el sitio o servicio que necesitas.\n\n📧 Email: martin-kugue@hotmail.com\n📱 WhatsApp: +52 612 168 1994');
+        return;
+      }
+      
+      // Forzar estilos para el centrado
+      modal.style.position = 'fixed';
+      modal.style.top = '0';
+      modal.style.left = '0';
+      modal.style.width = '100vw';
+      modal.style.height = '100vh';
+      modal.style.display = 'flex';
+      modal.style.alignItems = 'center';
+      modal.style.justifyContent = 'center';
+      modal.style.zIndex = '999999';
+      
+      // Añadir clase show
+      modal.classList.add('show');
+      
+      // Añadir listener para ESC
+      document.addEventListener('keydown', handleEscapeKey);
+      
+      console.log('Modal mostrado correctamente con estilos forzados'); // Debug
+      console.log('Modal position:', modal.getBoundingClientRect()); // Debug posición
+    }
+    
+    function closeContactModal() {
+      console.log('closeContactModal llamada'); // Debug
+      const modal = document.getElementById('contactModal');
+      
+      if (!modal) {
+        console.error('Modal no encontrado para cerrar');
+        return;
+      }
+      
+      modal.classList.remove('show');
+      
+      // Limpiar estilos inline después de la animación
+      setTimeout(() => {
+        modal.style.display = 'none';
+      }, 300);
+      
+      // Remover listener del ESC
+      document.removeEventListener('keydown', handleEscapeKey);
+    }
+    
+    function handleEscapeKey(e) {
+      if (e.key === 'Escape') {
+        closeContactModal();
+      }
+    }
+    
+    // Cerrar modal al hacer clic en el overlay
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM cargado, inicializando modal'); // Debug
+      const modal = document.getElementById('contactModal');
+      
+      if (!modal) {
+        console.error('Modal no encontrado en DOMContentLoaded');
+        return;
+      }
+      
+      const overlay = modal.querySelector('.modal-overlay');
+      
+      if (overlay) {
+        overlay.addEventListener('click', closeContactModal);
+        console.log('Event listener del overlay añadido'); // Debug
+      } else {
+        console.error('Overlay no encontrado');
+      }
+      
+      // El modal ya está oculto por defecto con CSS
+      console.log('Modal inicializado correctamente');
+    });
+
+    // También añadir un evento global para test
+    window.testModal = function() {
+      console.log('Test modal llamado');
+      showContactAlert();
+    };
+
+    // Protección anti-inspección - Ver js/proteccion.js
+  </script>
+  
+  <!-- Sistema de protección anti-inspección -->
+  <script src="js/proteccion.js"></script>
+
+  <!-- URLs enmascaradas con JavaScript -->
+  <script>
+    // Sistema de enmascaramiento de URLs
+    function handleMaskedUrls() {
+      // Crear URLs alternativas más amigables
+      const urlMappings = {
+        'restaurante': 'demos/restaurante-gourmet.html',
+        'gourmet': 'demos/restaurante-gourmet.html',
+        'portafolio': 'demos/portafolio-profesional.html',
+        'profesional': 'demos/portafolio-profesional.html',
+        'landing': 'demos/pagina-conversion.html',
+        'conversion': 'demos/pagina-conversion.html',
+        'marketing': 'demos/pagina-conversion.html'
+      };
+      
+      // Función para navegar con URLs enmascaradas
+      window.navigateTo = function(key) {
+        if (urlMappings[key]) {
+          window.location.href = urlMappings[key];
+        }
+      };
+      
+      // Interceptar clics en enlaces y aplicar enmascaramiento
+      document.addEventListener('click', function(e) {
+        const link = e.target.closest('a');
+        if (link && link.dataset.masked) {
+          e.preventDefault();
+          const maskedUrl = link.dataset.masked;
+          if (urlMappings[maskedUrl]) {
+            // Cambiar URL en la barra de direcciones sin recargar
+            if (history.pushState) {
+              history.pushState(null, null, '/' + maskedUrl);
+              // Luego navegar al archivo real
+              setTimeout(() => {
+                window.location.href = urlMappings[maskedUrl];
+              }, 100);
+            } else {
+              window.location.href = urlMappings[maskedUrl];
+            }
+          }
+        }
+      });
+    }
+    
+    // Inicializar enmascaramiento cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', handleMaskedUrls);
+    } else {
+      handleMaskedUrls();
     }
   </script>
 </body>

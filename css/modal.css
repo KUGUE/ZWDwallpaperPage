@@ -1,0 +1,238 @@
+/* ===== MODAL DE CONTACTO ELEGANTE ===== */
+.contact-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(15px);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.contact-modal.show {
+  display: flex !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 999999 !important;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.modal-content {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.98) 100%);
+  border-radius: 25px;
+  padding: 2.5rem;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    0 10px 25px rgba(102, 126, 234, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px);
+  z-index: 2;
+  animation: modalSlideIn 0.3s ease-out;
+  margin: auto;
+}
+
+.contact-modal.show .modal-content {
+  position: relative !important;
+  margin: auto !important;
+  transform: none !important;
+  animation: modalSlideIn 0.3s ease-out !important;
+}
+
+@keyframes modalSlideIn {
+  from {
+    transform: scale(0.8) translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #ddd;
+  font-size: 2rem;
+  color: #666;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+  font-weight: bold;
+}
+
+.modal-close:hover {
+  background: rgba(255, 0, 0, 0.1);
+  color: #ff4757;
+  transform: scale(1.1);
+  border-color: #ff4757;
+}
+
+.modal-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.modal-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.modal-header h2 {
+  color: #333;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.modal-body {
+  text-align: center;
+}
+
+.modal-message {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.modal-contact-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.modal-contact-btn {
+  display: flex;
+  align-items: center;
+  padding: 1.2rem 1.5rem;
+  border-radius: 15px;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-contact-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.email-btn {
+  background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+}
+
+.email-btn:hover {
+  background: linear-gradient(135deg, #3367d6 0%, #2d8a47 100%);
+}
+
+.whatsapp-btn {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+}
+
+.whatsapp-btn:hover {
+  background: linear-gradient(135deg, #1fb05a 0%, #0f6b5f 100%);
+}
+
+.btn-icon {
+  font-size: 2rem;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.btn-text {
+  text-align: left;
+  flex-grow: 1;
+}
+
+.btn-text strong {
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.btn-text small {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+.modal-footer-text {
+  font-size: 1rem;
+  color: #666;
+  font-style: italic;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .modal-content {
+    padding: 2rem;
+    margin: 10px;
+    width: calc(100% - 20px);
+  }
+  
+  .modal-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .modal-message {
+    font-size: 1rem;
+  }
+  
+  .modal-contact-btn {
+    padding: 1rem;
+  }
+  
+  .btn-icon {
+    font-size: 1.5rem;
+  }
+}
