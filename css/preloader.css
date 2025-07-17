@@ -10,14 +10,44 @@
   align-items: center;
   justify-content: center;
   z-index: 999999;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
   overflow: hidden;
+  /* Asegurar que cubra todo */
+  will-change: opacity, visibility;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .preloader.hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+}
+
+/* Garantizar que el contenido esté completamente oculto durante la carga */
+.loading {
+  overflow: hidden;
+}
+
+.loading .container,
+.loading footer,
+.loading .scroll-indicator {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translateY(20px) !important;
+  transition: none !important;
+}
+
+/* Transición suave del contenido cuando aparece */
+.loaded .container,
+.loaded footer,
+.loaded .scroll-indicator {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translateY(0) !important;
+  transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s !important;
 }
 
 .preloader-content {

@@ -68,38 +68,53 @@
         this.currentProgress = 0;
         this.targetProgress = 0;
         this.isComplete = false;
+        this.startTime = Date.now();
+        this.minDisplayTime = 3000; // 3 segundos mínimos
+        this.domReady = false;
         
         this.init();
       }
       
       init() {
-        // Simular carga de recursos
+        // Simular carga de recursos más lenta para 3 segundos
         this.simulateLoading();
         
         // Escuchar cuando el DOM esté completamente cargado
         if (document.readyState === 'complete') {
-          this.handleComplete();
+          this.domReady = true;
         } else {
-          window.addEventListener('load', () => this.handleComplete());
+          window.addEventListener('load', () => {
+            this.domReady = true;
+            this.checkCanComplete();
+          });
         }
         
         // Actualizar progreso suavemente
         this.updateProgress();
+        
+        // Forzar finalización después de exactamente 3 segundos
+        setTimeout(() => {
+          this.forceComplete();
+        }, this.minDisplayTime);
       }
       
       simulateLoading() {
         const loadingSteps = [
-          { progress: 20, delay: 300, text: 'Cargando recursos...' },
-          { progress: 40, delay: 600, text: 'Inicializando...' },
-          { progress: 60, delay: 900, text: 'Preparando interfaz...' },
-          { progress: 80, delay: 1200, text: 'Aplicando efectos...' },
-          { progress: 95, delay: 1500, text: 'Finalizando...' }
+          { progress: 15, delay: 400, text: 'Cargando recursos...' },
+          { progress: 30, delay: 800, text: 'Inicializando componentes...' },
+          { progress: 45, delay: 1200, text: 'Preparando interfaz...' },
+          { progress: 65, delay: 1600, text: 'Configurando efectos...' },
+          { progress: 80, delay: 2000, text: 'Aplicando estilos...' },
+          { progress: 92, delay: 2400, text: 'Finalizando carga...' },
+          { progress: 100, delay: 2800, text: 'Completado!' }
         ];
         
         loadingSteps.forEach(step => {
           setTimeout(() => {
-            this.setProgress(step.progress);
-            this.updateLoadingText(step.text);
+            if (!this.isComplete) {
+              this.setProgress(step.progress);
+              this.updateLoadingText(step.text);
+            }
           }, step.delay);
         });
       }
@@ -110,7 +125,7 @@
       
       updateProgress() {
         if (this.currentProgress < this.targetProgress) {
-          this.currentProgress += (this.targetProgress - this.currentProgress) * 0.1;
+          this.currentProgress += (this.targetProgress - this.currentProgress) * 0.08;
           
           if (this.targetProgress - this.currentProgress < 0.1) {
             this.currentProgress = this.targetProgress;
@@ -132,20 +147,33 @@
           setTimeout(() => {
             loadingTextElement.textContent = text;
             loadingTextElement.style.opacity = '0.9';
-          }, 200);
+          }, 150);
         }
       }
       
-      handleComplete() {
-        // Asegurar que llegue al 100%
-        this.setProgress(100);
+      checkCanComplete() {
+        const elapsedTime = Date.now() - this.startTime;
         
-        setTimeout(() => {
-          this.hidePreloader();
-        }, 800); // Dar tiempo para que se vea el 100%
+        // Solo completar si han pasado al menos 3 segundos Y el DOM está listo
+        if (elapsedTime >= this.minDisplayTime && this.domReady) {
+          this.handleComplete();
+        }
       }
       
-      hidePreloader() {
+      forceComplete() {
+        // Asegurar que esté al 100% y completar después de exactamente 3 segundos
+        this.setProgress(100);
+        this.updateLoadingText('¡Listo!');
+        
+        // Esperar un momento para que se vea el 100% y luego ocultar
+        setTimeout(() => {
+          this.handleComplete();
+        }, 200);
+      }
+      
+      handleComplete() {
+        if (this.isComplete) return;
+        
         this.isComplete = true;
         
         // Animar salida del preloader
@@ -185,13 +213,6 @@
     
     // Inicializar preloader inmediatamente
     const preloaderManager = new PreloaderManager();
-    
-    // También manejar caso de carga muy rápida
-    setTimeout(() => {
-      if (!preloaderManager.isComplete) {
-        preloaderManager.handleComplete();
-      }
-    }, 3000); // Máximo 3 segundos de preloader
   </script>
 
   <!-- Indicador de scroll -->
