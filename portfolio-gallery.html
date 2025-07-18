@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Portafolio de Proyectos - Sitios Web Premium</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="referrer" content="no-referrer">
+  
+  <!-- Favicon optimizado -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="site.webmanifest">
+  
+  <!-- Precargar recursos críticos -->
+  <link rel="preload" href="css/portfolio-gallery.css" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style">
+  
+  <!-- Conectar a dominios externos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://images.unsplash.com">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/portfolio-gallery.css">
+</head>
+<body class="loading">
+  <!-- Preloader elegante -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-content">
+      <div class="preloader-logo">
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 3H21V21H3V3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 9H15V15H9V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="preloader-text">
+        <h2>Portafolio de Proyectos</h2>
+        <p>Cargando galería de sitios...</p>
+      </div>
+      <div class="preloader-spinner">
+        <div class="spinner-ring"></div>
+        <div class="spinner-ring"></div>
+        <div class="spinner-ring"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header con navegación -->
+  <header class="main-header">
+    <div class="header-content">
+      <div class="logo">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 3H21V21H3V3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9 9H15V15H9V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Sitios Web Premium</span>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="#portfolio" class="nav-link active">Portafolio</a>
+        <a href="#contact" class="nav-link">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Galería de Proyectos</h1>
+      <p class="hero-subtitle">Explora nuestra colección de sitios web profesionales, templates y demos</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">10</span>
+          <span class="stat-label">Proyectos</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Categorías</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Responsive</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bg-particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+  </section>
+
+  <!-- Filtros -->
+  <section class="filters-section">
+    <div class="container">
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="landing">Landing Pages</button>
+        <button class="filter-btn" data-filter="portfolio">Portafolios</button>
+        <button class="filter-btn" data-filter="restaurant">Restaurantes</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portafolio Grid -->
+  <section id="portfolio" class="portfolio-section">
+    <div class="container">
+      <div class="portfolio-grid" id="portfolioGrid">
+        
+        <!-- Landing Pages -->
+        <div class="project-card" data-category="landing">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop&crop=center&q=80&fm=webp" alt="Landing SaaS" loading="lazy" width="400" height="300" decoding="async">
+            <div class="card-overlay">
+              <div class="overlay-content">
+                <h3>SaaS Landing</h3>
+                <p>Landing optimizada para software</p>
+                <div class="card-buttons">
+                  <a href="demos/landing-demo.html" class="btn-demo">Ver Demo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-info">
+            <span class="card-category">Landing Page</span>
+            <h4 class="card-title">SaaS Landing Pro</h4>
+            <div class="card-tags">
+              <span class="tag">React</span>
+              <span class="tag">Conversion</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="landing">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=400&h=300&fit=crop&crop=center&q=80&fm=webp" alt="Agency Landing" loading="lazy" width="400" height="300" decoding="async">
+            <div class="card-overlay">
+              <div class="overlay-content">
+                <h3>Agency Landing</h3>
+                <p>Sitio para agencia digital</p>
+                <div class="card-buttons">
+                  <a href="demos/pagina-conversion.html" class="btn-demo">Ver Demo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-info">
+            <span class="card-category">Landing Page</span>
+            <h4 class="card-title">Digital Agency</h4>
+            <div class="card-tags">
+              <span class="tag">Agency</span>
+              <span class="tag">Services</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="landing">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=300&fit=crop&crop=center&q=80&fm=webp" alt="Startup Landing" loading="lazy" width="400" height="300" decoding="async">
+            <div class="card-overlay">
+              <div class="overlay-content">
+                <h3>Startup Landing</h3>
+                <p>Landing para startup tecnológica</p>
+                <div class="card-buttons">
+                  <a href="coming-soon.html" class="btn-demo">Ver Demo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-info">
+            <span class="card-category">Landing Page</span>
+            <h4 class="card-title">Startup Tech</h4>
+            <div class="card-tags">
+              <span class="tag">Startup</span>
+              <span class="tag">Innovation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Portafolios -->
+        <div class="project-card" data-category="portfolio">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop&crop=center&q=80&fm=webp" alt="Developer Portfolio" loading="lazy" width="400" height="300" decoding="async">
+            <div class="card-overlay">
+              <div class="overlay-content">
+                <h3>Developer Portfolio</h3>
+                <p>Portafolio para desarrollador</p>
+                <div class="card-buttons">
+                  <a href="demos/portafolio-profesional.html" class="btn-demo">Ver Demo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-info">
+            <span class="card-category">Portafolio</span>
+            <h4 class="card-title">Developer Pro</h4>
+            <div class="card-tags">
+              <span class="tag">Developer</span>
+              <span class="tag">GitHub</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="portfolio">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1522252234503-e356532cafd5?w=400&h=300&fit=crop&crop=center&q=80&fm=webp" alt="Designer Portfolio" loading="lazy" width="400" height="300" decoding="async">
+            <div class="card-overlay">
+              <div class="overlay-content">
+                <h3>Creative Portfolio</h3>
+                <p>Portafolio para diseñador creativo</p>
+                <div class="card-buttons">
+                  <a href="coming-soon.html" class="btn-demo">Ver Demo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-info">
+            <span class="card-category">Portafolio</span>
+            <h4 class="card-title">Creative Portfolio</h4>
+            <div class="card-tags">
+              <span class="tag">Design</span>
+              <span class="tag">Creative</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="portfolio">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=400&h=300&fit=crop&crop=center&q=80&fm=webp" alt="Photographer Portfolio" loading="lazy" width="400" height="300" decoding="async">
+            <div class="card-overlay">
+              <div class="overlay-content">
+                <h3>Photographer</h3>
+                <p>Portafolio para fotógrafo profesional</p>
+                <div class="card-buttons">
+                  <a href="coming-soon.html" class="btn-demo">Ver Demo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-info">
+            <span class="card-category">Portafolio</span>
+            <h4 class="card-title">Photography Studio</h4>
+            <div class="card-tags">
+              <span class="tag">Photography</span>
+              <span class="tag">Gallery</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="portfolio">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=400&h=300&fit=crop&crop=center&q=80&fm=webp" alt="Architecture Portfolio" loading="lazy" width="400" height="300" decoding="async">
+            <div class="card-overlay">
+              <div class="overlay-content">
+                <h3>Architecture</h3>
+                <p>Portafolio de arquitectura moderna</p>
+                <div class="card-buttons">
+                  <a href="coming-soon.html" class="btn-demo">Ver Demo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-info">
+            <span class="card-category">Portafolio</span>
+            <h4 class="card-title">Modern Architecture</h4>
+            <div class="card-tags">
+              <span class="tag">Architecture</span>
+              <span class="tag">Design</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Restaurantes -->
+        <div class="project-card" data-category="restaurant">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=300&fit=crop&crop=center&q=80&fm=webp" alt="Fine Dining" loading="lazy" width="400" height="300" decoding="async">
+            <div class="card-overlay">
+              <div class="overlay-content">
+                <h3>Fine Dining</h3>
+                <p>Restaurante gourmet</p>
+                <div class="card-buttons">
+                  <a href="demos/restaurante-gourmet.html" class="btn-demo">Ver Demo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-info">
+            <span class="card-category">Restaurante</span>
+            <h4 class="card-title">Gourmet Restaurant</h4>
+            <div class="card-tags">
+              <span class="tag">Fine Dining</span>
+              <span class="tag">Reservas</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="restaurant">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=300&fit=crop&crop=center&q=80&fm=webp" alt="Pizzeria" loading="lazy" width="400" height="300" decoding="async">
+            <div class="card-overlay">
+              <div class="overlay-content">
+                <h3>Pizzeria</h3>
+                <p>Pizzería moderna</p>
+                <div class="card-buttons">
+                  <a href="coming-soon.html" class="btn-demo">Ver Demo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-info">
+            <span class="card-category">Restaurante</span>
+            <h4 class="card-title">Modern Pizzeria</h4>
+            <div class="card-tags">
+              <span class="tag">Delivery</span>
+              <span class="tag">Pizza</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="restaurant">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400&h=300&fit=crop&crop=center&q=80&fm=webp" alt="Café Moderno" loading="lazy" width="400" height="300" decoding="async">
+            <div class="card-overlay">
+              <div class="overlay-content">
+                <h3>Café Moderno</h3>
+                <p>Cafetería moderna y acogedora</p>
+                <div class="card-buttons">
+                  <a href="coming-soon.html" class="btn-demo">Ver Demo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-info">
+            <span class="card-category">Restaurante</span>
+            <h4 class="card-title">Modern Coffee</h4>
+            <div class="card-tags">
+              <span class="tag">Coffee</span>
+              <span class="tag">Modern</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-category="restaurant">
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=300&fit=crop&crop=center&q=80&fm=webp" alt="Bistro Francés" loading="lazy" width="400" height="300" decoding="async">
+            <div class="card-overlay">
+              <div class="overlay-content">
+                <h3>Bistro Francés</h3>
+                <p>Auténtico bistro francés</p>
+                <div class="card-buttons">
+                  <a href="coming-soon.html" class="btn-demo">Ver Demo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-info">
+            <span class="card-category">Restaurante</span>
+            <h4 class="card-title">French Bistro</h4>
+            <div class="card-tags">
+              <span class="tag">French</span>
+              <span class="tag">Bistro</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>¿Te gustó algún proyecto?</h3>
+        <p>Contáctanos para crear algo similar o completamente personalizado para tu negocio</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Contacto</h4>
+        <div class="contact-links">
+          <a href="mailto:martin-kugue@hotmail.com" class="contact-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M22 7L13.03 12.7C12.7213 12.8934 12.3643 12.996 12 12.996C11.6357 12.996 11.2787 12.8934 10.97 12.7L2 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Email
+          </a>
+          <a href="https://wa.me/526121681994" class="contact-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 13.4876 3.36093 14.891 4 16.1247L3 21L7.87530 20C9.10904 20.6391 10.5124 21 12 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8.5 12.5L10.5 14.5L15.5 9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Sitios Web Premium - Todos los derechos reservados</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/portfolio-gallery.js"></script>
+  <script src="js/proteccion.js"></script>
+</body>
+</html>

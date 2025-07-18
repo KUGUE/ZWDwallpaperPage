@@ -10,14 +10,22 @@
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon.svg">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon.svg">
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon.svg">
   <link rel="manifest" href="site.webmanifest">
   
+  <!-- CSS Crítico inline para evitar FOUC -->
+  <style>
+    :root{--primary-color:#667eea;--secondary-color:#764ba2;--text-primary:#ffffff;--gradient-primary:linear-gradient(135deg,#667eea 0%,#764ba2 50%,#a8edea 100%);--glass-bg:rgba(255,255,255,0.1);--glass-blur:blur(20px);--transition-normal:0.3s ease}*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--gradient-primary);color:var(--text-primary);line-height:1.6;min-height:100vh;overflow-x:hidden}.preloader{position:fixed;top:0;left:0;width:100vw;height:100vh;background:var(--gradient-primary);display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity 0.5s ease,visibility 0.5s ease}.preloader.hidden{opacity:0;visibility:hidden}.preloader-content{text-align:center;max-width:400px;padding:2rem}.preloader-text h2{font-size:2rem;margin-bottom:0.5rem;font-weight:700}.preloader-text p{opacity:0.8;margin-bottom:2rem}header{text-align:center;padding:4rem 2rem;position:relative;z-index:2}header h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:800;margin-bottom:1rem}.subtitle{font-size:clamp(1rem,2.5vw,1.25rem);opacity:0.9;margin-bottom:2rem;max-width:600px;margin-left:auto;margin-right:auto}.cta-button{display:inline-block;padding:1rem 2.5rem;background:linear-gradient(135deg,var(--primary-color) 0%,var(--secondary-color) 100%);color:white;text-decoration:none;border-radius:25px;font-weight:600;font-size:1.1rem;transition:var(--transition-normal);box-shadow:0 8px 32px rgba(0,0,0,0.2);position:relative;z-index:1}.cta-button:hover{transform:translateY(-3px) scale(1.02)}.container{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:20px}.loading .container{visibility:hidden}#portfolio{background:rgba(255,255,255,0.1);backdrop-filter:blur(20px);border-radius:30px;padding:4rem 3rem;margin:6rem auto;max-width:1500px;border:1px solid rgba(255,255,255,0.2);position:relative}.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem}.portfolio-item{background:rgba(255,255,255,0.98);border-radius:25px;overflow:hidden;box-shadow:0 25px 70px rgba(0,0,0,0.08);transition:all 0.5s ease;position:relative;display:flex;flex-direction:column;height:100%}@media (max-width:768px){header{padding:2rem 1rem}.cta-button{padding:0.875rem 2rem;font-size:1rem}#portfolio{padding:2rem 1.5rem;margin:3rem auto}.portfolio-grid{grid-template-columns:1fr;gap:2rem}}
+  </style>
+  
+  <!-- Preconnect para recursos externos -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://images.unsplash.com">
+  
+  <!-- Fuentes con display=swap para mejor rendimiento -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS principal -->
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/modal.css">
   <link rel="stylesheet" href="css/preloader.css">
@@ -76,8 +84,8 @@
       }
       
       init() {
-        // Simular carga de recursos más lenta para 3 segundos
-        this.simulateLoading();
+        // Optimización: usar requestAnimationFrame desde el inicio
+        this.animationId = requestAnimationFrame(() => this.startLoading());
         
         // Escuchar cuando el DOM esté completamente cargado
         if (document.readyState === 'complete') {
@@ -95,18 +103,21 @@
         // Forzar finalización después de exactamente 3 segundos
         setTimeout(() => {
           this.forceComplete();
-        }, this.minDisplayTime);
+        }, 3000);
+      }
+      
+      startLoading() {
+        // Simular carga de recursos más rápida
+        this.simulateLoading();
       }
       
       simulateLoading() {
         const loadingSteps = [
-          { progress: 15, delay: 400, text: 'Cargando recursos...' },
-          { progress: 30, delay: 800, text: 'Inicializando componentes...' },
-          { progress: 45, delay: 1200, text: 'Preparando interfaz...' },
-          { progress: 65, delay: 1600, text: 'Configurando efectos...' },
-          { progress: 80, delay: 2000, text: 'Aplicando estilos...' },
-          { progress: 92, delay: 2400, text: 'Finalizando carga...' },
-          { progress: 100, delay: 2800, text: 'Completado!' }
+          { progress: 20, delay: 300, text: 'Cargando recursos...' },
+          { progress: 40, delay: 600, text: 'Inicializando...' },
+          { progress: 65, delay: 1000, text: 'Preparando interfaz...' },
+          { progress: 85, delay: 1400, text: 'Aplicando estilos...' },
+          { progress: 100, delay: 2000, text: 'Completado!' }
         ];
         
         loadingSteps.forEach(step => {
@@ -250,7 +261,7 @@
     <header>
       <h1>Sitios Web Premium</h1>
       <p class="subtitle">Portafolio de sitios web profesionales listos para transformar tu negocio</p>
-      <a href="#portfolio" class="cta-button">Explorar Portafolio</a>
+      <a href="portfolio-gallery.html" class="cta-button">Explorar Portafolio</a>
     </header>
 
     <section id="stats" class="stats-section">
@@ -417,6 +428,7 @@
       <div class="modal-body">
         <p class="modal-message">
           Debes contactarte antes de pagar para quedar los términos de cómo se elaborará el sitio o servicio que necesitas.
+          Ya que cada proyecto es único y requiere una atención personalizada pero el costo puede ser similar o superior al precio del sitio mostrado.
         </p>
         
         <div class="modal-contact-options">
@@ -683,10 +695,12 @@
         particle.style.opacity = Math.random() * 0.7 + 0.3; // 0.3 a 1.0
       });
       
-      // Crear partículas adicionales más frecuentemente
+      // Crear partículas adicionales con menor frecuencia para mejor rendimiento
       setInterval(() => {
-        createFloatingParticle();
-      }, 4000); // Cada 4 segundos
+        if (document.visibilityState === 'visible') { // Solo si la página es visible
+          createFloatingParticle();
+        }
+      }, 6000); // Cada 6 segundos (reducido de 4)
     }
 
     // Función para crear partículas flotantes ocasionales
@@ -718,9 +732,9 @@
       };
     }
 
-    // Efecto de mouse interactivo con partículas - Más frecuente
+    // Efecto de mouse interactivo con partículas - Optimizado
     document.addEventListener('mousemove', function(e) {
-      if (Math.random() < 0.15) { // 15% de las veces
+      if (Math.random() < 0.08) { // 8% de las veces (reducido de 15%)
         createMouseParticle(e.clientX, e.clientY);
       }
     });
@@ -806,8 +820,9 @@
     // Protección anti-inspección - Ver js/proteccion.js
   </script>
   
-  <!-- Sistema de protección anti-inspección -->
-  <script src="js/proteccion.js"></script>
+  <!-- Scripts optimizados -->
+  <script src="js/optimizer.js" defer></script>
+  <script src="js/proteccion.js" defer></script>
 
   <!-- URLs enmascaradas con JavaScript -->
   <script>
@@ -858,6 +873,21 @@
       document.addEventListener('DOMContentLoaded', handleMaskedUrls);
     } else {
       handleMaskedUrls();
+    }
+  </script>
+
+  <!-- Registrar Service Worker para cache -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then((registration) => {
+            console.log('SW registrado con éxito:', registration.scope);
+          })
+          .catch((error) => {
+            console.log('SW registro falló:', error);
+          });
+      });
     }
   </script>
 </body>

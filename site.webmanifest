@@ -6,6 +6,11 @@
   "display": "standalone",
   "background_color": "#667eea",
   "theme_color": "#667eea",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "es",
+  "categories": ["business", "productivity"],
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "favicon.svg",
