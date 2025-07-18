@@ -14,10 +14,23 @@
   <link rel="apple-touch-icon" sizes="180x180" href="../favicon.svg">
   <link rel="manifest" href="../site.webmanifest">
   
+  <!-- CSS crítico inline para mejorar LCP -->
+  <style>
+    :root{--primary-gold:#d4af37;--primary-dark:#1a1a1a;--text-primary:#333;--bg-light:#fefefe}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',serif;background:var(--bg-light);color:var(--text-primary);line-height:1.6;overflow-x:hidden}header{position:fixed;top:0;width:100%;background:rgba(26,26,26,0.95);backdrop-filter:blur(10px);z-index:1000;transition:all 0.3s ease}nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;max-width:1200px;margin:0 auto}.logo{font-size:1.8rem;font-weight:700;color:var(--primary-gold);font-family:'Playfair Display',serif}.nav-links{display:flex;list-style:none;gap:2rem}.nav-links a{color:white;text-decoration:none;font-weight:500;transition:color 0.3s ease}.back-button{background:var(--primary-gold);color:var(--primary-dark);padding:0.5rem 1rem;border-radius:20px;text-decoration:none;font-weight:600;transition:all 0.3s ease}.hero{height:100vh;background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=800&fit=crop&crop=center');background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;text-align:center;color:white}.hero-content h1{font-size:clamp(3rem,6vw,5rem);font-weight:700;margin-bottom:1rem;font-family:'Playfair Display',serif}.hero-content p{font-size:clamp(1.1rem,2vw,1.3rem);margin-bottom:2rem;max-width:600px}.cta-button{display:inline-block;background:var(--primary-gold);color:var(--primary-dark);padding:1rem 2.5rem;text-decoration:none;border-radius:30px;font-weight:600;font-size:1.1rem;transition:all 0.3s ease;text-transform:uppercase;letter-spacing:1px}@media (max-width:768px){nav{padding:1rem}.nav-links{display:none}.hero-content h1{font-size:2.5rem}}
+  </style>
+  
+  <!-- Preconnect para recursos críticos -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/restaurant-demo.css">
+  <link rel="dns-prefetch" href="https://images.unsplash.com">
+  
+  <!-- Fuentes optimizadas con display=swap -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+  
+  <!-- CSS no crítico diferido -->
+  <link rel="preload" href="css/restaurant-demo.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/restaurant-demo.css"></noscript>
 </head>
 <body>
   <header>
@@ -30,7 +43,7 @@
         <li><a href="#reservas">Reservas</a></li>
         <li><a href="#ubicacion">Ubicación</a></li>
       </ul>
-      <a href="../index.html" class="back-button">← Volver al Portafolio</a>
+      <a href="../portfolio-gallery.html" class="back-button">← Volver al Portafolio</a>
     </nav>
   </header>
 

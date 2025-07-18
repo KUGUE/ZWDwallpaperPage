@@ -14,10 +14,23 @@
   <link rel="apple-touch-icon" sizes="180x180" href="../favicon.svg">
   <link rel="manifest" href="../site.webmanifest">
   
+  <!-- CSS crítico inline para evitar FOUC y mejorar LCP -->
+  <style>
+    :root{--primary-color:#667eea;--secondary-color:#764ba2;--text-primary:#2d3748;--bg-primary:#ffffff;--transition:0.3s ease}*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.6;overflow-x:hidden}header{position:relative;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,0.1)}nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;max-width:1200px;margin:0 auto}.logo{font-size:1.5rem;font-weight:700;color:var(--primary-color)}.nav-links{display:flex;list-style:none;gap:2rem}.nav-links a{text-decoration:none;color:var(--text-primary);font-weight:500;transition:var(--transition)}.back-button{background:var(--primary-color);color:white;padding:0.5rem 1rem;border-radius:20px;text-decoration:none;font-weight:600;transition:var(--transition)}.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.hero-content{text-align:center;z-index:2;position:relative;max-width:800px;padding:2rem}.hero h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:800;margin-bottom:1rem;color:var(--text-primary)}.subtitle{font-size:clamp(1rem,2.5vw,1.25rem);color:#718096;margin-bottom:1rem}.hero p{font-size:1.1rem;color:#4a5568;margin-bottom:2rem;max-width:600px;margin-left:auto;margin-right:auto}.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}.cta-button{display:inline-block;padding:1rem 2rem;background:linear-gradient(135deg,var(--primary-color),var(--secondary-color));color:white;text-decoration:none;border-radius:25px;font-weight:600;transition:var(--transition);box-shadow:0 4px 15px rgba(102,126,234,0.3)}.cta-button.secondary{background:transparent;border:2px solid var(--primary-color);color:var(--primary-color)}.loading .container{visibility:hidden}@media (max-width:768px){nav{padding:1rem}.nav-links{display:none}.hero{padding:2rem 1rem}.cta-buttons{flex-direction:column;align-items:center}}
+  </style>
+  
+  <!-- Preconnect para recursos externos críticos -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/portfolio-demo.css">
+  <link rel="dns-prefetch" href="https://images.unsplash.com">
+  
+  <!-- Fuentes con display=swap para evitar FOIT -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+  
+  <!-- CSS no crítico diferido -->
+  <link rel="preload" href="css/portfolio-demo.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/portfolio-demo.css"></noscript>
 </head>
 <body>
   <header>
@@ -30,7 +43,7 @@
         <li><a href="#cv">CV</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
-      <a href="../index.html" class="back-button">← Volver al Portafolio</a>
+      <a href="../portfolio-gallery.html" class="back-button">← Volver al Portafolio</a>
     </nav>
   </header>
 
@@ -282,7 +295,25 @@
     </div>
   </section>
 
+  <!-- Scripts -->
   <script>
+    // Cargar CSS de forma diferida para mejorar LCP
+    function loadDeferredCSS() {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'css/portfolio-demo.css';
+      document.head.appendChild(link);
+    }
+    
+    // Cargar CSS diferido después del LCP
+    if (document.readyState === 'complete') {
+      loadDeferredCSS();
+    } else {
+      window.addEventListener('load', loadDeferredCSS);
+    }
+    
+    // ...existing code...
+    
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
